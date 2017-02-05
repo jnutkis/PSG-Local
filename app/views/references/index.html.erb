@@ -1,0 +1,13 @@
+<h1>Hello</h1>
+
+<table>
+	<tr>
+		<th>Control Reference</th>
+	</tr>
+	<% @references.each do |ref|%>
+	<tr>
+		<td><%= ref.full_ref %></td>
+	</tr>
+	<% end %>
+</table>
+
