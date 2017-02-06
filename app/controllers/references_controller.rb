@@ -4,6 +4,6 @@ class ReferencesController < ApplicationController
   end
   
   def show
-    @reference = Reference.find(params[:short_ref])
+    @reference = Reference.friendly.find(params[:id])
   end
 end

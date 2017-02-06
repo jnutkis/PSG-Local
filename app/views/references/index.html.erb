@@ -6,7 +6,7 @@
 	</tr>
 	<% @references.each do |ref|%>
 	<tr>
-		<td><%= ref.full_ref %></td>
+		<td><%= link_to ref.full_ref, reference_path(ref) %></td>
 	</tr>
 	<% end %>
 </table>
