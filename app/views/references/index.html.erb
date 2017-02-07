@@ -1,5 +1,23 @@
 <h1>Hello</h1>
 
+<%= search_form_for @q do |f| %>
+
+  <%= f.search_field :full_ref_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+
+<% @r.each do |x|%>
+	<%= x.full_ref %>
+<% end %>
+
+
+
+
+
+
+
 <table>
 	<tr>
 		<th>Control Reference</th>
