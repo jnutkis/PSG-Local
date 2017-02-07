@@ -1,8 +1,8 @@
 class ReferencesController < ApplicationController
   def index
-    @references = Reference.all.order(:short_ref).page(params[:page]).per(50)
+    @references = Reference.all.order(:full_ref).page(params[:page]).per(25)
     @q = Reference.ransack(params[:q])
-    @r = @q.result(distinct:true)
+    @r = @q.result(distinct:true).order(:full_ref).page(params[:page]).per(25)
   end
   
   def show

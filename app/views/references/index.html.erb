@@ -1,24 +1,9 @@
 <h1>Hello</h1>
 
-<%= search_form_for @q do |f| %>
+<%= render 'references/search' %>
 
-  <%= f.search_field :full_ref_cont %>
-
-  <%= f.submit %>
-<% end %>
-
-
-<% @r.each do |x|%>
-	<%= x.full_ref %>
-<% end %>
-
-
-
-
-
-
-
-<table>
+<% if !@r.any? %>
+<table id = "reference-table">
 	<tr>
 		<th>Control Reference</th>
 	</tr>
@@ -29,3 +14,4 @@
 	<% end %>
 </table>
 <%= paginate @references %>
+<% end %>

@@ -1,3 +1,18 @@
 // Place all the styles related to the References controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#null-results{
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#reference-table {
+  margin-top: 20px;
+}
+
+#reference-table-results {
+  margin-top: 30px;
+}
