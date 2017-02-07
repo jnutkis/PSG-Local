@@ -1,6 +1,6 @@
 class ReferencesController < ApplicationController
   def index
-    @references = Reference.all.order(:short_ref)
+    @references = Reference.all.order(:short_ref).page(params[:page]).per(50)
   end
   
   def show
