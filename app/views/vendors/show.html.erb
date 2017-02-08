@@ -1,11 +1,20 @@
-<% if @vendor.logo.present? %>
-<%= image_tag(@vendor.logo, class: "vendor-logo") %>
-<% end %>
-<h1><%= @vendor.name %></h1>
-<p>Website: <%= link_to @vendor.website,@vendor.website, :target => "_blank" %></p>
-<% if @vendor.phone.present? %>
-<p>Phone: <%= @vendor.phone %></p>
-<% end %>
-<% if @vendor.email.present? %>
-<p>Email: <%= mail_to @vendor.email, @vendor.email, subject: "Products and Services Guide Inquiry" %></p>
-<% end %>
+<div class="container">
+	<div class="row center">
+		<div class="col-xs-12 vendor-head">
+		<h1>
+		<% if @vendor.logo.present? %>
+		<%= image_tag(@vendor.logo, class: "vendor-logo") %>
+		<% end %>
+		<%= @vendor.name %>
+		</h1>
+	</div>
+	<div class="col-xs-12">
+		<p>Website: <%= link_to @vendor.website,@vendor.website, :target => "_blank" %></p>
+		<% if @vendor.phone.present? %>
+		<p>Phone: <%= @vendor.phone %></p>
+		<% end %>
+		<% if @vendor.email.present? %>
+		<p>Email: <%= mail_to @vendor.email, @vendor.email, subject: "Products and Services Guide Inquiry" %></p>
+		<% end %>
+	</div>
+</div>
