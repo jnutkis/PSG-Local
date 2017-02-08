@@ -6,4 +6,8 @@ class VendorsController < ApplicationController
     @r = @q.result(distinct:true).order(:name).page(params[:page]).per(25)
   end
   
+  def show
+    @vendor = Vendor.friendly.find(params[:id])
+  end
+  
 end

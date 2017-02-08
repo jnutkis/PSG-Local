@@ -1,0 +1,11 @@
+<% if @vendor.logo.present? %>
+<%= image_tag(@vendor.logo, class: "vendor-logo") %>
+<% end %>
+<h1><%= @vendor.name %></h1>
+<p>Website: <%= link_to @vendor.website,@vendor.website, :target => "_blank" %></p>
+<% if @vendor.phone.present? %>
+<p>Phone: <%= @vendor.phone %></p>
+<% end %>
+<% if @vendor.email.present? %>
+<p>Email: <%= mail_to @vendor.email, @vendor.email, subject: "Products and Services Guide Inquiry" %></p>
+<% end %>
