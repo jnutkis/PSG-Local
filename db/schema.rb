@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208021201) do
+ActiveRecord::Schema.define(version: 20170208030624) do
 
   create_table "references", force: :cascade do |t|
     t.string   "full_ref"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170208021201) do
     t.string  "logo"
     t.string  "email"
     t.integer "active"
+    t.string  "phone"
   end
 
 end
