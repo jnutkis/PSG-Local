@@ -1,3 +1,4 @@
+<p class="return"><%= link_to "<<< Return to Vendors",vendors_path %></p>
 <div class="container">
 	<div class="row center">
 		<div class="col-xs-12 vendor-head">
@@ -24,15 +25,17 @@
 		</div>
 	</div>
 	<div class="row">
-		<% @vendor.products.each do |x| %>
+		<% @products.each do |x| %>
 		<div class="col-md-6">
 			<h1 class="center"><%= x.name %></h1>
 			<% if x.description.present? %>
 			<div><%= x.description %></div>
 			<% end %>
 			<% if x.url.present? %>
-			<%= link_to "Link",x.url, :target => "_blank" %>
+			<%= link_to "More Information",x.url, :target => "_blank" %>
 			<% end %>
 		</div>
 		<% end %>
+	</div>
 </div>
+<%= paginate @products %>

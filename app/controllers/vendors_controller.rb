@@ -1,13 +1,14 @@
 class VendorsController < ApplicationController
   
   def index
-    @vendors = Vendor.all.order(:name).page(params[:page]).per(25)
-    @q = Vendor.ransack(params[:q])
+    @vendors = Vendor.where(active: 1).order(:name).page(params[:page]).per(25)
+    @q = Vendor.where(active: 1).ransack(params[:q])
     @r = @q.result(distinct:true).order(:name).page(params[:page]).per(25)
   end
   
   def show
-    @vendor = Vendor.friendly.find(params[:id])
+    @vendor = Vendor.where(active: 1).friendly.find(params[:id])
+    @products = Vendor.friendly.find(params[:id]).products.order(:name).page(params[:page]).per(4)
   end
   
 end
