@@ -1,16 +1,18 @@
-<h1 class="center">Control References</h1>
-<%= render 'references/search' %>
-
-<% if !@r.any? %>
-<table id = "reference-table">
-	<tr>
-		<th>Control Reference</th>
-	</tr>
-	<% @references.each do |ref|%>
-	<tr>
-		<td><%= link_to ref.full_ref, reference_path(ref) %></td>
-	</tr>
+<div class="container">
+	<h1 class="center">Control References</h1>
+	<%= render 'references/search' %>
+	
+	<% if !@r.any? %>
+	<table id = "reference-table">
+		<tr>
+			<th>Control Reference</th>
+		</tr>
+		<% @references.each do |ref|%>
+		<tr>
+			<td><%= link_to ref.full_ref, reference_path(ref) %></td>
+		</tr>
+		<% end %>
+	</table>
+	<%= paginate @references %>
 	<% end %>
-</table>
-<%= paginate @references %>
-<% end %>
+</div>
