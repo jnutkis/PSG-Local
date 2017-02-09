@@ -23,4 +23,16 @@
 			<h1>Products</h1>
 		</div>
 	</div>
+	<div class="row">
+		<% @vendor.products.each do |x| %>
+		<div class="col-md-6">
+			<h1 class="center"><%= x.name %></h1>
+			<% if x.description.present? %>
+			<div><%= x.description %></div>
+			<% end %>
+			<% if x.url.present? %>
+			<%= link_to "Link",x.url, :target => "_blank" %>
+			<% end %>
+		</div>
+		<% end %>
 </div>

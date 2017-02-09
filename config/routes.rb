@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   
   resources :references
-  resources :vendors
+  resources :vendors do
+    resources :products
+  end
 end
