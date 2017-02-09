@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170209010050) do
+ActiveRecord::Schema.define(version: 20170209024246) do
+
+  create_table "associations", force: :cascade do |t|
+    t.integer "reference_id"
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_associations_on_product_id"
+    t.index ["reference_id"], name: "index_associations_on_reference_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string  "name"
