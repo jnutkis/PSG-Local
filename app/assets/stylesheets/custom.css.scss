@@ -9,6 +9,7 @@
 .navbar {
   border-radius: 0;
   font-weight: bold;
+  background-color: #B2AD73;
 }
 
 .navbar-brand {
@@ -28,3 +29,6 @@
   padding-left:30px;
 }
 
+.navbar-default .navbar-nav > li > a {
+  color: black;
+}
