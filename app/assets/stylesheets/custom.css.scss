@@ -11,7 +11,10 @@
   font-weight: bold;
   background-color: #B2AD73;
   box-shadow: 0px 10px 10px lightgrey;
-  line-height: 40px!important;
+}
+
+.collapse.navbar-right.navbar-collapse {
+  padding-top: 13px;
 }
 
 .navbar-brand {

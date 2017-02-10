@@ -4,4 +4,15 @@
 	<div class="row center spec">
 		<p><%= @reference.specification.html_safe %></p>
 	</div>
+	<div class="row">
+		<h1>Related Products</h1>
+		<% @products.each do |product| %>
+		<div class="products">
+		<%= image_tag product.vendor.logo, class: "product-logo" %>
+		<%= product.name %>
+		<%= product.description[0...150] %>
+		</div>
+		<% end %>
+		<%= paginate @products %>
+	</div>
 </div>

@@ -7,5 +7,6 @@ class ReferencesController < ApplicationController
   
   def show
     @reference = Reference.friendly.find(params[:id])
+    @products = Reference.friendly.find(params[:id]).products.order(:name).page(params[:page]).per(25)
   end
 end
