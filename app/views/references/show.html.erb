@@ -4,6 +4,7 @@
 	<div class="row center spec">
 		<p><%= @reference.specification.html_safe %></p>
 	</div>
+	<% if @products.present? %>
 	<div class="row">
 		<h3>Related Products</h3>
 		<% @products.each do |product| %>
@@ -19,4 +20,5 @@
 		<% end %>
 		<%= paginate @products %>
 	</div>
+	<% end %>
 </div>
