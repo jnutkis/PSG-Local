@@ -9,7 +9,9 @@
 		<h3>Related Products</h3>
 		<% @products.each do |product| %>
 		<div class="products">
-		<%= image_tag product.vendor.logo, class: "product-logo" %>
+		<%= link_to vendor_path(product.vendor) do %>	
+			<%= image_tag product.vendor.logo, class: "product-logo" %>
+		<% end %>
 		<% if product.url.present? %>
 		<%= link_to product.name,product.url %>
 		<% else %>
