@@ -17,3 +17,4 @@
 //= require_tree .
 
 //= references.js
+//= nav.js

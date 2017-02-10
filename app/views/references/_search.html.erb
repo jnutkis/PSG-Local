@@ -18,6 +18,19 @@
 	</tr>
 	<% end %>
 </table>
-<% end %>	
 <%= paginate @r %>
+<% else %>
+	<table id = "reference-table">
+		<tr>
+			<th>Control Reference</th>
+		</tr>
+		<% @references.each do |ref|%>
+		<tr>
+			<td><%= link_to ref.full_ref, reference_path(ref) %></td>
+		</tr>
+		<% end %>
+	</table>
+	<%= paginate @references %>
+<% end %>	
+
 

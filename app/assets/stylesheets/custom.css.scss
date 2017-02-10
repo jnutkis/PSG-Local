@@ -10,6 +10,8 @@
   border-radius: 0;
   font-weight: bold;
   background-color: #B2AD73;
+  box-shadow: 0px 10px 10px lightgrey;
+  line-height: 40px!important;
 }
 
 .navbar-brand {
@@ -31,4 +33,9 @@
 
 .navbar-default .navbar-nav > li > a {
   color: black;
+}
+
+
+.nav-links:hover {
+  color: lightgrey!important;
 }
