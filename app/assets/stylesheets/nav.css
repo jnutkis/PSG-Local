@@ -1,0 +1,36 @@
+/*New Nav Bar Stuff*/
+#page-content-wrapper{
+	padding-top: 40px;
+}
+
+.brand {
+  height: 50px;
+  width: auto;
+  margin: auto 0;
+}
+
+#close_menu {
+	font-size: 10px;
+	text-align: center;
+}
+
+#close_menu:hover {
+	cursor: pointer;
+}
+
+#open_menu{
+	position: absolute;
+	top: 50px;
+	left: 20px;
+	visibility:hidden;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+
+@media(max-width:767px) {
+	#open_menu{
+		visibility: visible;
+		z-index: 2;
+	}
+}

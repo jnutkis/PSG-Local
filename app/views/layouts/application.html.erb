@@ -9,8 +9,13 @@
   </head>
 
   <body>
-  	<%= render 'layouts/navbar' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+  	<div id="wrapper">
+	  	<%= render 'layouts/navbarleft' %>
+	    <div id="page-content-wrapper">
+	    <%= yield %>
+	    <%= render 'layouts/footer' %>
+	    </div>
+	</div>
+<%= javascript_include_tag "/assets/nav" %>
   </body>
 </html>
