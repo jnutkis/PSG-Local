@@ -5,6 +5,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body{
+  font-family:'Open Sans', sans-serif;
+}
+
 .navbar {
   border-radius: 0;
   font-weight: bold;
@@ -40,4 +44,8 @@
 
 .nav-links:hover {
   color: lightgrey!important;
+}
+
+h1 {
+  font-family: 'Kreon', serif;
 }

@@ -14,7 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require_tree .
 
 //= references.js
-//= nav.js
