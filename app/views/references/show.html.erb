@@ -12,12 +12,9 @@
 		<%= link_to vendor_path(product.vendor) do %>	
 			<%= image_tag product.vendor.logo, class: "product-logo" %>
 		<% end %>
-		<% if product.url.present? %>
-		<%= link_to product.name,product.url %>
-		<% else %>
-		<%= link_to product.name,vendor_path(product.vendor) %>
-		<% end %>
-		<%= product.description[0...150] %>
+		<%= link_to product.name,vendor_product_path(product.vendor,product) %>
+		<%= product.description[0...100] %>
+		<%= link_to "[more]",vendor_product_path(product.vendor,product) %>
 		</div>
 		<% end %>
 		<%= paginate @products %>
