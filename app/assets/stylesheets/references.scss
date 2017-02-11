@@ -25,3 +25,11 @@
   height: 15px;
   width: auto;
 }
+
+table.products td {
+  padding: 5px 10px;
+}
+
+table.products tr:nth-child(even) {
+  background-color: #E0F2F7;
+}

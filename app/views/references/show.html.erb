@@ -7,16 +7,18 @@
 	<% if @products.present? %>
 	<div class="row">
 		<h3>Related Products</h3>
-		<% @products.each do |product| %>
-		<div class="products">
-		<%= link_to vendor_path(product.vendor) do %>	
-			<%= image_tag product.vendor.logo, class: "product-logo" %>
-		<% end %>
-		<%= link_to product.name,vendor_product_path(product.vendor,product) %>
-		<%= product.description[0...100] %>
-		<%= link_to "[more]",vendor_product_path(product.vendor,product) %>
-		</div>
-		<% end %>
+		<table class="products">
+			<% @products.each do |product| %>
+				<tr>
+				<td><%= link_to vendor_path(product.vendor) do %>	
+					<%= image_tag product.vendor.logo, class: "product-logo" %></td>
+				<% end %>
+				<td><%= link_to product.name,vendor_product_path(product.vendor,product) %></td>
+				<td><%= product.description[0...100] %>
+				<%= link_to "[more]",vendor_product_path(product.vendor,product) %></td>
+				</tr>
+			<% end %>
+		</table>
 		<%= paginate @products %>
 	</div>
 	<% end %>
