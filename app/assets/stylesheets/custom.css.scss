@@ -49,3 +49,36 @@ body{
 h1 {
   font-family: 'Kreon', serif;
 }
+
+
+/* Homepage Icons */
+
+.search-tile {
+    height: 150px;
+    vertical-align: middle;
+    line-height: 150px;
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 2%;
+    box-shadow: 0 1px 10px black;
+    margin: 50px 0;
+}
+
+#search-ref {
+  background-color: #961E1B;
+  color: white; 
+}
+
+#search-ref:hover {
+  background-color: #a94442; 
+}
+
+#search-vendor {
+  background-color: #121536;
+  color: white;
+}
+
+
+#search-vendor:hover {
+  background-color: #5a6369;
+}

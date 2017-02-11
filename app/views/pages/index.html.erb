@@ -4,11 +4,17 @@
 	<% end %>
 	<h1>Products and Services Guide</h1>
 	<div class="row">
-		<div class="col-md-6 animated zoomIn">
-			Test
-		</div>
-		<div class="col-md-6 animated zoomIn">
-			Test2
-		</div>
+		<%= link_to references_path do%>
+			<div class="col-md-6 search-tile" id="search-ref">
+				<span class="glyphicon glyphicon-search"></span>
+				Search Products by CSF Reference
+			</div>
+		<% end %>
+		<%= link_to vendors_path do%>
+			<div class="col-md-6 search-tile" id="search-vendor">
+				<span class="glyphicon glyphicon-search"></span>
+				Search Products by Vendor
+			</div>
+		<% end %>
 	</div>	
 </div>
