@@ -31,9 +31,7 @@
 			<% if x.description.present? %>
 			<div><%= x.description %></div>
 			<% end %>
-			<% if x.url.present? %>
 			<%= link_to "More Information",vendor_product_path(@vendor,x) %>
-			<% end %>
 		</div>
 		<% end %>
 	</div>
