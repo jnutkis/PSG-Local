@@ -6,13 +6,14 @@
             	<li id="close_menu">
                 	Close
                 </li>
+                <% if !logged_in? %>
                 <li class="sidebar-brand">
                     <%= link_to login_path do %>
                        <span class="glyphicon glyphicon-user"></span>
                         Log-in
                     <% end %>
                 </li>
-                
+                <% end %>
                 <li><%= link_to "Home", root_path %></li>
                	<li><%= link_to "References", references_path %></li>
 		        <li><%= link_to "Vendors", vendors_path %></li>
