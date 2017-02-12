@@ -13,7 +13,7 @@
  *
  */
 
-
+//= require rails_bootstrap_forms
 //= require simple-sidebar
 //= require pages
 //= require products
@@ -22,3 +22,4 @@
 //= require custom
 //= require users
 //= require nav
+//= require login
