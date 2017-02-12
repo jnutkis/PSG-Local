@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212050728) do
+ActiveRecord::Schema.define(version: 20170212150133) do
 
   create_table "associations", force: :cascade do |t|
     t.integer "reference_id"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20170212050728) do
   create_table "users", force: :cascade do |t|
     t.string  "firstname"
     t.string  "lastname"
-    t.string  "password"
     t.integer "vendor_id"
     t.integer "admin"
     t.integer "superuser"
