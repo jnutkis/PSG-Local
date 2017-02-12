@@ -21,7 +21,8 @@
                     <a href="#">Contact</a>
                 </li>
                 <% if admin? || super? %>
-                <li><%= link_to "Administration", administration_path %></li>
+                <li class="divide"></li>
+                <li><%= link_to "Administration", administration_path, :class => "admin-link" %></li>
                 <% end %>
             </ul>
        <div id="navleft-logo">

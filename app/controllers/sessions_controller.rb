@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
       if admin? || super?
-        redirect_to root_path
+        redirect_to administration_path
       else
         redirect_to root_path
       end
