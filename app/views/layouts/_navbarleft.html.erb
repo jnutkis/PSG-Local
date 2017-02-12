@@ -20,6 +20,9 @@
                 <li>
                     <a href="#">Contact</a>
                 </li>
+                <% if admin? %>
+                <li><%= link_to "Administration", administration_path %></li>
+                <% end %>
             </ul>
        <div id="navleft-logo">
        	<%= image_tag "hitrust_black" %>
