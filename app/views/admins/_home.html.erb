@@ -1,0 +1,20 @@
+<% if super? %>
+<div class="row">
+	<div class="col-md-6">
+		<h1>Vendors</h1>
+		<% @vendors.each do |x| %>
+		<ul>
+			<li><%= link_to x.name, vendor_path(x) %></li>
+		</ul>
+		<% end %>
+	</div>
+	<div class="col-md-6">
+		<h1>References</h1>
+		<% @references.each do |x| %>
+		<ul>
+			<li><%= link_to x.full_ref, reference_path(x) %></li>
+		</ul>
+		<% end %>
+	</div>
+</div>
+<% end %>
