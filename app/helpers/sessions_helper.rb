@@ -13,13 +13,17 @@ module SessionsHelper
   
   def admin?
     if !session[:user_id].nil?
-      current_user.admin
+      if current_user.admin == 1
+        return true
+      end
     end
   end
   
   def super?
     if !session[:user_id].nil?
-      current_user.superuser
+      if current_user.superuser == 1
+        return true
+      end
     end
   end
   
