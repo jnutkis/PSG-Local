@@ -20,7 +20,7 @@
                 <li>
                     <a href="#">Contact</a>
                 </li>
-                <% if admin? %>
+                <% if admin? || super? %>
                 <li><%= link_to "Administration", administration_path %></li>
                 <% end %>
             </ul>
