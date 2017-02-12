@@ -7,10 +7,10 @@
                 	Close
                 </li>
                 <li class="sidebar-brand">
-                    <a href="#">
+                    <%= link_to login_path do %>
                        <span class="glyphicon glyphicon-user"></span>
                         Log-in
-                    </a>
+                    <% end %>
                 </li>
                 
                 <li><%= link_to "Home", root_path %></li>
