@@ -7,5 +7,6 @@ class AdminsController < ApplicationController
     @vendors = Vendor.all
     @references = Reference.all
     
+    @vendor = Vendor.find_by(id: current_user.vendor_id)
   end
 end
