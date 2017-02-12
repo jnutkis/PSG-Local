@@ -4,8 +4,8 @@ class AdminsController < ApplicationController
       redirect_to root_path
     end
     
-    @vendors = Vendor.all
-    @references = Reference.all
+    @vendors = Vendor.all.order(:name)
+    @references = Reference.all.order(:full_ref)
     
     @vendor = Vendor.find_by(id: current_user.vendor_id)
   end
