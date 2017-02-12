@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211213457) do
+ActiveRecord::Schema.define(version: 20170212030856) do
 
   create_table "associations", force: :cascade do |t|
     t.integer "reference_id"
