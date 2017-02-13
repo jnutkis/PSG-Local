@@ -48,7 +48,10 @@ class ProductsController < ApplicationController
   
   
   def edit
-    if admin?
+    if super?
+      @vendor = Vendor.find_by(name: params[:vendor_id])
+      @product = @vendor.products.find(params[:id])
+    elsif admin?
       @vendor = Vendor.find_by(id: current_user.vendor_id)
       if @vendor.name == params[:vendor_id] && @vendor.products.find(params[:id])
         @product = @vendor.products.find(params[:id])
@@ -65,7 +68,14 @@ class ProductsController < ApplicationController
   
   def update
     if super?
-    
+    @vendor = Vendor.find_by(name: params[:vendor_id])
+    @product = @vendor.products.find_by(id: params[:id])
+    @updated = @product.update(product_params)
+      if @updated
+        redirect_to administration_path
+      else
+        redirect_to new_vendor_product_path :notice => 'Product Name is Required'
+      end
     elsif admin?
       @vendor = Vendor.find_by(id: current_user.vendor_id)
       if @vendor.name == params[:vendor_id] && @vendor.products.find(params[:id])
@@ -79,6 +89,8 @@ class ProductsController < ApplicationController
       else
         redirect_to administration_path
       end
+    else 
+      redirect_to root_path
     end
   end
   
