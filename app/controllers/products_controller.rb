@@ -5,17 +5,21 @@ class ProductsController < ApplicationController
   end
   def new
     @product = Product.new
-    @vendor = Vendor.find_by(id: current_user.vendor_id).name
-    if !@vendor == params[:vendor_id]
-      redirect_to root_path
+    if admin?
+      @vendor = Vendor.find_by(id: current_user.vendor_id).name
+      if !@vendor == params[:vendor_id]
+        redirect_to root_path
+      end
+    elsif super?
+      @product.vendor_id = Vendor.find_by(name: params[:vendor_id]).id
     end
   end
   
   def create
     if super? #check if super, if so, use vendor param in URL
       @product = Product.new(product_params)
-      @product.vendor_id = params[:vendor_id]
-      
+      @product.vendor_id = Vendor.find_by(name: params[:vendor_id]).id
+   
         if @product.save
           redirect_to administration_path
         else
