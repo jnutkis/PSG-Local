@@ -1,0 +1,9 @@
+<% if flash[:danger] %>
+<p><%= flash[:danger] %></p>
+<% end %>
+<%= bootstrap_form_for :product, url: vendor_products_path, :html => {class: "col-sm-6 login-form"} do |f| %>
+	<%= f.text_field :name %>
+  	<%= f.text_area :description %>
+  	<%= f.url_field :url %>
+  	<%= f.submit "Create Product" %>
+<% end %>

@@ -20,7 +20,7 @@
 <% elsif admin? %>
 <div class="row">
 	<div class="col-md-6">
-		<h1>Products</h1>
+		<h1>Products</h1><small><%= link_to "Add New Product", new_vendor_product_path(Vendor.find_by(id: current_user.vendor_id).name) %></small>
 		<% @vendor.products.order(:name).each do |x| %>
 		<ul>
 			<li><%= link_to x.name, vendor_product_path(x.vendor.name,x) %></li>
