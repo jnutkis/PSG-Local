@@ -1,17 +1,19 @@
-<% if @product.errors.any?%>
-	<ul>
-		<% @product.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li>
-		<% end %>
-	</ul>
-<% end %>
-<% if params[:notice] %>
-<p><%= params[:notice] %></p>
-<% end %>
-<%= bootstrap_form_for @product, url: vendor_product_path, :html => {class: "col-sm-6 login-form"} do |f| %>
-	<%= f.alert_message "Please fix the errors below." %>	
-	<%= f.text_field :name %>
-  	<%= f.text_area :description %>
-  	<%= f.url_field :url, label: "Product URL" %>
-  	<%= f.submit "Submit" %>
+<% if admin? || super? %>
+	<% if @product.errors.any?%>
+		<ul>
+			<% @product.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<% if params[:notice] %>
+	<p><%= params[:notice] %></p>
+	<% end %>
+	<%= bootstrap_form_for @product, url: vendor_product_path, :html => {class: "col-sm-6 login-form"} do |f| %>
+		<%= f.alert_message "Please fix the errors below." %>	
+		<%= f.text_field :name %>
+	  	<%= f.text_area :description %>
+	  	<%= f.url_field :url, label: "Product URL" %>
+	  	<%= f.submit "Submit" %>
+	<% end %>
 <% end %>

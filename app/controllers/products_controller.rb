@@ -58,6 +58,8 @@ class ProductsController < ApplicationController
       else
         redirect_to administration_path
       end
+    else
+      redirect_to root_path
     end
     
     
