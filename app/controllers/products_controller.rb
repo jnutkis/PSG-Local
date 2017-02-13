@@ -56,10 +56,35 @@ class ProductsController < ApplicationController
         redirect_to administration_path
       end
     end
+    
+    
+    
+    
   end
   
   
+  def update
+    if super?
+    
+    elsif admin?
+      @vendor = Vendor.find_by(id: current_user.vendor_id)
+      if @vendor.name == params[:vendor_id] && @vendor.products.find(params[:id])
+        @product = @vendor.products.find_by(id: params[:id])
+        @updated = @product.update(product_params)
+          if @updated
+            redirect_to administration_path
+          else
+            redirect_to edit_vendor_product_path :vendor_id => @vendor.name, :id => @product.id, :notice => "Product Name is Required"
+          end
+      else
+        redirect_to administration_path
+      end
+    end
+  end
   
+  def destroy
+    
+  end
   
   
     private
