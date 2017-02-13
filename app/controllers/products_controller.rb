@@ -46,6 +46,22 @@ class ProductsController < ApplicationController
     end
   end
   
+  
+  def edit
+    if admin?
+      @vendor = Vendor.find_by(id: current_user.vendor_id)
+      if @vendor.name == params[:vendor_id] && @vendor.products.find(params[:id])
+        @product = @vendor.products.find(params[:id])
+      else
+        redirect_to administration_path
+      end
+    end
+  end
+  
+  
+  
+  
+  
     private
     def product_params
       params.require(:product).permit(:name,:description,:url,:references)
