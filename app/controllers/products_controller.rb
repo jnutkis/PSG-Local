@@ -12,18 +12,32 @@ class ProductsController < ApplicationController
   end
   
   def create
-    @vendor = Vendor.find_by(id: current_user.vendor_id).name
-    if @vendor == params[:vendor_id]
+    if super? #check if super, if so, use vendor param in URL
       @product = Product.new(product_params)
-      @product.update(vendor: Vendor.find_by(id: current_user.vendor_id))
-      if @product.save
-        redirect_to administration_path
-      else
-        flash[:danger] = @product.errors.full_messages
-        render 'new'
-      end
+      @product.vendor_id = params[:vendor_id]
       
-    else
+        if @product.save
+          redirect_to administration_path
+        else
+          render 'new'
+        end
+        
+    elsif admin? #check if vendor admin, if so, pass vendor info from table if matches URL
+      @vendor = Vendor.find_by(id: current_user.vendor_id).name
+      if @vendor == params[:vendor_id]
+        @product = Product.new(product_params)
+        @product.update(vendor: Vendor.find_by(id: current_user.vendor_id))
+        
+          if @product.save
+            redirect_to administration_path
+          else
+            redirect_to new_vendor_product_path :notice => 'Product Name is Required'
+          end
+
+      else 
+          redirect_to administration_path
+      end  
+    else #if neither, take home
       redirect_to root_path
     end
   end
