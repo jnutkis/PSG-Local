@@ -4,7 +4,7 @@
 		<%= image_tag @product.vendor.logo, class:"product-logo-page" %>
 		<% end %>
 		<h1 class="center"><%= @product.name %></h1>
-		<% if @product.url %>
+		<% if @product.url.present? %>
 		<div><%= link_to "Website",@product.url, :target => "_blank" %> </div>
 		<% end %>
 	</div>

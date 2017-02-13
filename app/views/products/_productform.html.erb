@@ -1,5 +1,9 @@
-<% if flash[:danger] %>
-<p><%= flash[:danger] %></p>
+<% if @product.errors.any?%>
+	<ul>
+		<% @product.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
 <% end %>
 <%= bootstrap_form_for :product, url: vendor_products_path, :html => {class: "col-sm-6 login-form"} do |f| %>
 	<%= f.text_field :name %>

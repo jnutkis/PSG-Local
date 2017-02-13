@@ -18,6 +18,9 @@ class ProductsController < ApplicationController
       @product.update(vendor: Vendor.find_by(id: current_user.vendor_id))
       if @product.save
         redirect_to administration_path
+      else
+        flash[:danger] = @product.errors.full_messages
+        render 'new'
       end
       
     else
