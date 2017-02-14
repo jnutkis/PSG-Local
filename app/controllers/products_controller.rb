@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
     @vendor = Vendor.friendly.find(params[:vendor_id])
     @product = @vendor.products.friendly.find(params[:id])
   end
+  
   def new
     @product = Product.new
     if admin?
@@ -111,7 +112,7 @@ class ProductsController < ApplicationController
   
     private
     def product_params
-      params.require(:product).permit(:name,:description,:url,:references)
+      params.require(:product).permit(:name,:description,:url, :reference_ids => [])
     end
 
 end

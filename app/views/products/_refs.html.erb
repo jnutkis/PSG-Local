@@ -1,0 +1,8 @@
+<% if params[:notice] %>
+<p><%= params[:notice] %></p>
+<% end %>
+<%= bootstrap_form_for @product, url: vendor_products_path, :html => {class: "ref-form"} do |f| %>
+	<%= f.alert_message "Please fix the errors below." %>	
+	<%= f.collection_check_boxes :references, Reference.all, :id, :full_ref %>
+  	<%= f.submit "Submit" %>
+<% end %>
