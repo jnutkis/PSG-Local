@@ -29,6 +29,7 @@
                 </li>
                 <% if admin? || super? %>
                 <li class="divide"></li>
+                <li><%= link_to "My Profile", administration_path, :class => "admin-link" %></li>
                 <li><%= link_to "Administration", administration_path, :class => "admin-link" %></li>
                 <% end %>
             </ul>
