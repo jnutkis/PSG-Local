@@ -24,11 +24,18 @@
 	<% end %>
 	<div class="col-md-6">
 		<h1>Products</h1><small><%= link_to "Add New Product", new_vendor_product_path(Vendor.find_by(id: current_user.vendor_id).name) %></small>
+		<table>
+			<tr>
+				<th>Product Name</th>
+			</tr>
 		<% @vendor.products.order(:name).each do |x| %>
-		<ul>
-			<li><%= link_to x.name, vendor_product_path(x.vendor.name,x) %>   <%= link_to "X",vendor_product_path(@vendor.name,x.id), method: :delete, data: {confirm: "Do you wish to delete this Product?"} %></li>
-		</ul>
+			<tr>
+				<td><%= link_to x.name, vendor_product_path(x.vendor.name,x) %></td>
+				<td><%= link_to "Edit", edit_vendor_product_path(@vendor.name,x.id)%></td>
+				<td><%= link_to "Delete",vendor_product_path(@vendor.name,x.id), method: :delete, data: {confirm: "Do you wish to delete this Product?"} %></td>
+			</tr>
 		<% end %>
+		</table>
 	</div>
 	<div class="col-md-6">
 	</div>

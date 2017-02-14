@@ -53,10 +53,10 @@ class ProductsController < ApplicationController
       @product = @vendor.products.find(params[:id])
     elsif admin?
       @vendor = Vendor.find_by(id: current_user.vendor_id)
-      if @vendor.name == params[:vendor_id] && @vendor.products.find(params[:id])
+      if @vendor.name == params[:vendor_id] && @vendor.id == Product.find(params[:id]).vendor.id
         @product = @vendor.products.find(params[:id])
       else
-        redirect_to administration_path
+        redirect_to administration_path :notice => "You don't have permission to do that!"
       end
     else
       redirect_to root_path
@@ -80,7 +80,7 @@ class ProductsController < ApplicationController
       end
     elsif admin?
       @vendor = Vendor.find_by(id: current_user.vendor_id)
-      if @vendor.name == params[:vendor_id] && @vendor.products.find(params[:id])
+      if @vendor.name == params[:vendor_id] && @vendor.id == Product.find(params[:id]).vendor.id
         @product = @vendor.products.find_by(id: params[:id])
         @updated = @product.update(product_params)
           if @updated
@@ -89,7 +89,7 @@ class ProductsController < ApplicationController
             redirect_to edit_vendor_product_path :vendor_id => @vendor.name, :id => @product.id, :notice => "Product Name is Required"
           end
       else
-        redirect_to administration_path
+        redirect_to administration_path :notice => "You don't have permission to do that!"
       end
     else 
       redirect_to root_path
