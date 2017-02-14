@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
-  def new
-    
+  def new 
+    if logged_in? && (admin? || super?) #if logged_in and user is admin or superuser go to admin page
+      redirect_to administration_path
+    elsif logged_in? #if logged in go to homepage
+      redirect_to root_path
+    end
   end
   
   def create
@@ -21,7 +25,10 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    
+    if logged_in?
+      logout 
+      redirect_to root_path
+    end
   end
   
 end

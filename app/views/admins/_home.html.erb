@@ -1,4 +1,4 @@
-<% if super? %>
+<% if super? %> <!-- if super user, show vendors and references-->
 <div class="row">
 	<div class="col-md-6">
 		<h1>Vendors</h1>
@@ -17,13 +17,16 @@
 		<% end %>
 	</div>
 </div>
-<% elsif admin? %>
+<% elsif admin? %><!-- else if admin, show products and users-->
 <div class="row">
+	<% if params[:notice]%>
+		<p><%= params[:notice]%></p>
+	<% end %>
 	<div class="col-md-6">
 		<h1>Products</h1><small><%= link_to "Add New Product", new_vendor_product_path(Vendor.find_by(id: current_user.vendor_id).name) %></small>
 		<% @vendor.products.order(:name).each do |x| %>
 		<ul>
-			<li><%= link_to x.name, vendor_product_path(x.vendor.name,x) %></li>
+			<li><%= link_to x.name, vendor_product_path(x.vendor.name,x) %>   <%= link_to "X",vendor_product_path(@vendor.name,x.id), method: :delete, data: {confirm: "Do you wish to delete this Product?"} %></li>
 		</ul>
 		<% end %>
 	</div>

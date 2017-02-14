@@ -27,4 +27,9 @@ module SessionsHelper
     end
   end
   
+  def logout #logout method. delete session cookie for user. set @current_user = nil
+    reset_session
+    @current_user = nil
+  end
+  
 end

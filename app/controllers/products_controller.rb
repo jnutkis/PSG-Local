@@ -97,7 +97,15 @@ class ProductsController < ApplicationController
   end
   
   def destroy
-    
+    if admin? #if admin, check user's vendor. Then match desired product_id's vendor with user's vendor. delete desired product.
+      @vendor = Vendor.find_by(id: current_user.vendor_id)
+      if @vendor.name == params[:vendor_id] && @vendor.id == Product.find(params[:id]).vendor.id
+        Product.find(params[:id]).destroy
+        redirect_to administration_path
+      else
+        redirect_to administration_path :notice => "You don't have permission to do that!"
+      end
+    end
   end
   
   
