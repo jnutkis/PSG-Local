@@ -7,8 +7,8 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     if admin?
-      @vendor = Vendor.find_by(id: current_user.vendor_id).name
-      if !@vendor == params[:vendor_id]
+      @vendor = Vendor.find(current_user.vendor_id).name
+      if @vendor != params[:vendor_id]
         redirect_to root_path
       end
     elsif super?

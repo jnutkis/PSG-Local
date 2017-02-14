@@ -1,18 +1,13 @@
-<% if @product.errors.any?%>
-	<ul>
-		<% @product.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li>
-		<% end %>
-	</ul>
-<% end %>
-<% if params[:notice] %>
-<p><%= params[:notice] %></p>
-<% end %>
-<%= bootstrap_form_for @product, url: vendor_products_path, :html => {class: "col-sm-6 login-form"} do |f| %>
-	<%= f.alert_message "Please fix the errors below." %>	
-	<%= f.text_field :name %>
-  	<%= f.text_area :description %>
-  	<%= f.url_field :url, label: "Product URL" %>
-  	<%= f.collection_check_boxes :reference_ids, Reference.all, :id, :full_ref  %>
-  	<%= f.submit "Submit" %>
+<% if super? || admin? %>
+	<% if params[:notice] %>
+	<p><%= params[:notice] %></p>
+	<% end %>
+	<%= bootstrap_form_for @product, url: vendor_products_path, :html => {class: "col-sm-6 login-form"} do |f| %>
+		<%= f.alert_message "Please fix the errors below." %>	
+		<%= f.text_field :name %>
+	  	<%= f.text_area :description %>
+	  	<%= f.url_field :url, label: "Product URL" %>
+	  	<%= f.collection_check_boxes :reference_ids, Reference.all, :id, :full_ref, :label => "References"  %>
+	  	<%= f.submit "Submit" %>
+	<% end %>
 <% end %>
