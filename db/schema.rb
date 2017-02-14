@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212173912) do
+ActiveRecord::Schema.define(version: 20170214223727) do
 
   create_table "associations", force: :cascade do |t|
     t.integer "reference_id"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170212173912) do
     t.integer "superuser"
     t.string  "email"
     t.string  "password_digest"
+    t.integer "active",          default: 1, null: false
+    t.integer "newpw",           default: 1, null: false
     t.index ["vendor_id"], name: "index_users_on_vendor_id"
   end
 
