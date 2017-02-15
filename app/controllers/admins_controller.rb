@@ -1,4 +1,6 @@
 class AdminsController < ApplicationController
+  include UsersHelper
+  before_filter :active?
   def index
     if !admin? && !super?
       redirect_to root_path

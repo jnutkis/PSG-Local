@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  def login
-    
-  end
+  include UsersHelper
+  before_filter :active?
   
   def show
     @user = current_user

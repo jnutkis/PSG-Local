@@ -10,12 +10,17 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     
-    if user && user.authenticate(params[:session][:password])
-      log_in user
-      if admin? || super?
-        redirect_to administration_path
+    if user && user.authenticate(params[:session][:password]) 
+      if user.active == 1
+        log_in user
+        if admin? || super?
+          redirect_to administration_path
+        else
+          redirect_to root_path
+        end
       else
-        redirect_to root_path
+      flash.now[:danger] = "User is inactive"
+      render 'new'
       end
     else
       flash.now[:danger] = "Invalid Username and Password"
