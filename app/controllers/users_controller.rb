@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     
   end
   
-  def index
+  def show
     @user = current_user
     if !logged_in? || current_user != User.find(params[:id])
       redirect_to root_path
