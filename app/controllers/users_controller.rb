@@ -1,6 +1,19 @@
 class UsersController < ApplicationController
   include UsersHelper
-  before_filter :active?
+  before_action :active?
+  
+    def create
+    @user = User.new(user_params)
+    if @user.save
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "User has been sent an activation email"
+      redirect_to administration_url
+    else
+      render 'new'
+    end
+  end
+  
+  
   
   def show
     @user = current_user
