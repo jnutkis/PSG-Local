@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   
   def show
     @user = current_user
-    if !logged_in? || current_user != User.find(params[:id])
+    if !logged_in? || current_user.vendor_id != User.find(params[:id]).vendor_id
       redirect_to root_path
     end
     rescue ActiveRecord::RecordNotFound
