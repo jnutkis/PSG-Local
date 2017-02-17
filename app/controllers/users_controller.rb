@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   include UsersHelper
   before_action :active?
   
+    def new
+      @user = User.new
+    end
+  
     def create
     @user = User.new(user_params)
     if @user.save
