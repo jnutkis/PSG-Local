@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
   
+  def User.temp_token
+    SecureRandom.urlsafe_base64(12)
+  end
+  
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
@@ -27,7 +31,7 @@ class User < ActiveRecord::Base
   
   # Activates an account.
   def activate
-    update_attribute(:activated,    true)
+    update_attribute(:active,    1)
     update_attribute(:activated_at, Time.zone.now)
   end
 
