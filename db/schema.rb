@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217034510) do
+ActiveRecord::Schema.define(version: 20170218213534) do
 
   create_table "associations", force: :cascade do |t|
     t.integer "reference_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170217034510) do
     t.string   "remember_digest"
     t.string   "activation_digest"
     t.datetime "activated_at"
+    t.string   "otp_secret_key"
     t.index ["vendor_id"], name: "index_users_on_vendor_id"
   end
 
