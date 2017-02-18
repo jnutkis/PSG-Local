@@ -7,13 +7,14 @@ class UsersController < ApplicationController
     end
   
     def create
-    @user = User.new(user_params)
-    if @user.save
+    @user = User.new(new_user_params)
+    @user.vendor_id = current_user.vendor_id
+    if @user.save!
       @user.send_activation_email
       flash[:info] = "User has been sent an activation email"
       redirect_to administration_url
     else
-      render 'new'
+      redirect_to root_path
     end
   end
   
@@ -58,6 +59,10 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :password, :password_confirmation, :active)
+    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :active)
+  end
+  
+    def new_user_params
+    params.require(:user).permit(:email, :firstname, :lastname)
   end
 end
