@@ -10,6 +10,9 @@ class VendorsController < ApplicationController
     @vendor = Vendor.where(active: 1).friendly.find(params[:id])
     @products = Vendor.friendly.find(params[:id]).products.order(:name).page(params[:page]).per(8)
     @count = 0
+    
+   rescue ActiveRecord::RecordNotFound
+   redirect_to vendors_path
   end
   
 end

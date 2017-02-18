@@ -2,9 +2,16 @@ class ProductsController < ApplicationController
   def show
     @vendor = Vendor.friendly.find(params[:vendor_id])
     @product = @vendor.products.friendly.find(params[:id])
+    
+   rescue ActiveRecord::RecordNotFound
+     flash[:danger] = "Product not found"
+    redirect_to root_path
   end
   
   def new
+    if !logged_in?
+      redirect_to root_path
+    end
     @product = Product.new
     if admin?
       @vendor = Vendor.find(current_user.vendor_id).name
