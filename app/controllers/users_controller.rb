@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include UsersHelper
-  before_action :active?
+  before_action :active?,:vendor_active?
   
     def new
       @user = User.new

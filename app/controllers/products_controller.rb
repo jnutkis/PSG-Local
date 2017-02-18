@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def show
     @vendor = Vendor.friendly.find(params[:vendor_id])
+    if @vendor.active != 1
+      flash[:danger] = "Product not found"
+      redirect_to root_path
+    end
     @product = @vendor.products.friendly.find(params[:id])
     
    rescue ActiveRecord::RecordNotFound

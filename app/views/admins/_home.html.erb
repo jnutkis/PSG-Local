@@ -6,9 +6,15 @@
 				<th>Vendor</th>
 			</tr>
 			<% @vendors.order(:name).each do |x| %>
-			<tr>
-				<td><%= link_to x.name, administration_vendor_path(x) %></td>
-			</tr>
+				<% if x.active == 1%>
+					<tr class="active-vendor">
+						<td><%= link_to x.name, administration_vendor_path(x) %></td>
+					</tr>
+				<% elsif %>
+					<tr class="inactive-vendor">
+						<td><%= link_to x.name, administration_vendor_path(x) %></td>
+					</tr>				
+				<% end %>
 			<% end %>
 		</table>
 	</div>
