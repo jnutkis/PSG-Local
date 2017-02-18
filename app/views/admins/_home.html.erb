@@ -45,7 +45,7 @@
 			</tr>
 		<% @users.order(:lastname).each do |x| %>
 			<tr>
-				<td><%= link_to x.firstname + " " + x.lastname, user_path(x) %></td>
+				<td><%= x.firstname + " " + x.lastname %></td>
 				<td><%= link_to "Edit", edit_user_path(x)%></td>
 			</tr>
 		<% end %>

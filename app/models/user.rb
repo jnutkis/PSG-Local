@@ -57,8 +57,10 @@ class User < ActiveRecord::Base
     
       
     def user_defaults
-      self.update_attribute(:admin, 1)
-      self.update_attribute(:password, SecureRandom.urlsafe_base64)
+      if self.password_digest.nil?
+        self.update_attribute(:admin, 1)
+        self.update_attribute(:password, SecureRandom.urlsafe_base64)
+      end
     end
   
 end

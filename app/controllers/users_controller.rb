@@ -32,9 +32,10 @@ class UsersController < ApplicationController
   
   
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
     @vendor = Vendor.find(current_user.id)
-    if !logged_in? || current_user != User.find(params[:id])
+    @right = true if current_user.id == params[:id].to_i
+    if !logged_in? || current_user.vendor_id != User.find(params[:id]).vendor_id
       redirect_to root_path
     end
     rescue ActiveRecord::RecordNotFound
@@ -42,12 +43,12 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = current_user
-    if !logged_in? || current_user != User.find(params[:id])
+    @user = User.find(params[:id])
+    if !logged_in? || current_user.vendor_id != User.find(params[:id]).vendor_id
       redirect_to root_path
     end
     if @user.update_attributes(user_params)
-      redirect_to user_path(current_user.id)
+      redirect_to administration_path
     elsif 
       flash.now[:danger] = "Error"
       render 'edit'
@@ -62,7 +63,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :active)
   end
   
-    def new_user_params
+   def new_user_params
     params.require(:user).permit(:email, :firstname, :lastname)
   end
+
 end
