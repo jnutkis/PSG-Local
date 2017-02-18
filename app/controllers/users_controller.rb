@@ -34,7 +34,9 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @right = true if current_user.id == params[:id].to_i
-    if !logged_in? || current_user.vendor_id != User.find(params[:id]).vendor_id
+    if super?
+      
+    elsif !logged_in? || current_user.vendor_id != User.find(params[:id]).vendor_id
       redirect_to root_path
     end
     rescue ActiveRecord::RecordNotFound
@@ -43,7 +45,8 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if !logged_in? || current_user.vendor_id != User.find(params[:id]).vendor_id
+    if super?
+    elsif !logged_in? || current_user.vendor_id != User.find(params[:id]).vendor_id
       redirect_to root_path
     end
     if @user.update_attributes(user_params)
