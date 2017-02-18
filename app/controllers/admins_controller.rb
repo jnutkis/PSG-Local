@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
   include UsersHelper
-  before_action :active?
+  before_action :active?,:vendor_active?
   def index
     if !admin? && !super?
       redirect_to root_path
