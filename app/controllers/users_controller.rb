@@ -50,6 +50,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     if @user.update_attributes(user_params)
+      flash[:success] = "Account Updated"
       redirect_to administration_path
     elsif
       flash[:danger] = @user.errors.full_messages.to_sentence

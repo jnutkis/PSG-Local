@@ -7,7 +7,15 @@
   width: 100%;
 }
 
-.admin-table tr:nth-child(even) {
+.admin-table-half {
+  width: 50%;
+}
+
+.admin-table tr:nth-child(odd),.admin-table-half tr:nth-child(odd) {
   background-color: #E0F2F7;
+}
+
+.admin-table th, .admin-table-half th {
+  background-color: #fff;
 }
 

@@ -1,11 +1,16 @@
 <% if super? %> <!-- if super user, show vendors and references-->
 <div class="row">
 		<h1>Select a Vendor</h1>
-		<% @vendors.each do |x| %>
-		<ul>
-			<li><%= link_to x.name, administration_vendor_path(x) %></li>
-		</ul>
-		<% end %>
+		<table class="admin-table-half">
+			<tr>
+				<th>Vendor</th>
+			</tr>
+			<% @vendors.order(:name).each do |x| %>
+			<tr>
+				<td><%= link_to x.name, administration_vendor_path(x) %></td>
+			</tr>
+			<% end %>
+		</table>
 	</div>
 <% elsif admin? %><!-- else if admin, show products and users-->
 <div class="row">
