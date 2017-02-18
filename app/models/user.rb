@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessor :activation_token
-  before_create :create_activation_digest
+  attr_accessor :activation_token, :temporary_token
+  before_create :create_activation_digest, :create_temp_digest
   before_save :downcase_email
   before_validation :user_defaults
   validates :firstname, presence:true, length: {maximum:55}
@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
   
-  def temporary_password (user)
-    a = SecureRandom.urlsafe_base64(12)
+   def User.temp_token
+    SecureRandom.urlsafe_base64(12)
   end
   
   def authenticated?(attribute, token)
@@ -55,6 +55,10 @@ class User < ActiveRecord::Base
       self.activation_digest = User.digest(activation_token)
     end
     
+    def create_temp_digest
+      self.temporary_token = User.temp_token
+      self.password_digest = User.digest(temporary_token)
+    end
       
     def user_defaults
       if self.password_digest.nil?
