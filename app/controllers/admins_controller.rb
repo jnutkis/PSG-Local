@@ -14,14 +14,18 @@ class AdminsController < ApplicationController
   end
   
   def vendor
-    if !super?
+    if !super? #check for super_user, if not redirect
       redirect_to administration_path
     end
     @vendor = Vendor.find_by(name: params[:id])
-    if @vendor.nil?
+    
+    if @vendor.nil? #if vendor not found, redirect
       flash[:danger] = "Vendor Not Found"
       redirect_to administration_path
     end
+    
+    @users = User.all.where(vendor_id: @vendor.id) if !@vendor.nil?
+    
   end
   
 end
