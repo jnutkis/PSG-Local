@@ -19,9 +19,6 @@
 </div>
 <% elsif admin? %><!-- else if admin, show products and users-->
 <div class="row">
-	<% if params[:notice]%>
-		<p><%= params[:notice]%></p>
-	<% end %>
 	<div class="col-md-6">
 		<h1>Products     <small><%= link_to "Add New", new_vendor_product_path(Vendor.find_by(id: current_user.vendor_id).name) %></small></h1>
 		<table class="admin-table">
@@ -38,10 +35,10 @@
 		</table>
 	</div>
 	<div class="col-md-6">
-		<h1>Users     <small><%= link_to "Add New", new_user_path %></small></h1>
+		<h1>Administrators     <small><%= link_to "Add New", new_user_path %></small></h1>
 				<table class="admin-table">
 			<tr>
-				<th>Administrator</th>
+				<th>Name</th>
 			</tr>
 		<% @users.order(:lastname).each do |x| %>
 			<tr>

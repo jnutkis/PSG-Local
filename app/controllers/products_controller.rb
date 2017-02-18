@@ -36,7 +36,8 @@ class ProductsController < ApplicationController
           if @product.save
             redirect_to administration_path
           else
-            redirect_to new_vendor_product_path :notice => 'Product Name is Required'
+            flash[:danger] = @product.errors.full_messages.to_sentence
+            redirect_to new_vendor_product_path
           end
 
       else 
@@ -57,7 +58,8 @@ class ProductsController < ApplicationController
       if @vendor.name == params[:vendor_id] && @vendor.id == Product.find(params[:id]).vendor.id
         @product = @vendor.products.find(params[:id])
       else
-        redirect_to administration_path :notice => "You don't have permission to do that!"
+        flash[:danger] = "You don't have permission to do this!"
+        redirect_to administration_path
       end
     else
       redirect_to root_path
@@ -77,7 +79,8 @@ class ProductsController < ApplicationController
       if @updated
         redirect_to administration_path
       else
-        redirect_to new_vendor_product_path :notice => 'Product Name is Required'
+        flash[:danger] = @product.errors.full_messages.to_sentence
+        redirect_to new_vendor_product_path
       end
     elsif admin?
       @vendor = Vendor.find_by(id: current_user.vendor_id)
@@ -87,7 +90,8 @@ class ProductsController < ApplicationController
           if @updated
             redirect_to administration_path
           else
-            redirect_to edit_vendor_product_path :vendor_id => @vendor.name, :id => @product.id, :notice => "Product Name is Required"
+            flash[:danger] = @product.errors.full_messages.to_sentence
+            redirect_to edit_vendor_product_path :vendor_id => @vendor.name, :id => @product.id
           end
       else
         redirect_to administration_path :notice => "You don't have permission to do that!"
@@ -104,7 +108,8 @@ class ProductsController < ApplicationController
         Product.find(params[:id]).destroy
         redirect_to administration_path
       else
-        redirect_to administration_path :notice => "You don't have permission to do that!"
+        flash[:danger] = @product.errors.full_messages.to_sentence
+        redirect_to administration_path
       end
     end
   end
