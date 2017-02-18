@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :activation_token, :temporary_token
+  attr_readonly :email
   before_create :create_activation_digest
   before_validation :create_temp_digest, on: :create 
   before_save :downcase_email
