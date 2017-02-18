@@ -12,4 +12,16 @@ class AdminsController < ApplicationController
     @vendor = Vendor.find_by(id: current_user.vendor_id)
    end
   end
+  
+  def vendor
+    if !super?
+      redirect_to administration_path
+    end
+    @vendor = Vendor.find_by(name: params[:id])
+    if @vendor.nil?
+      flash[:danger] = "Vendor Not Found"
+      redirect_to administration_path
+    end
+  end
+  
 end
