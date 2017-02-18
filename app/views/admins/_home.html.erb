@@ -39,6 +39,17 @@
 	</div>
 	<div class="col-md-6">
 		<h1>Users     <small><%= link_to "Add New", new_user_path %></small></h1>
+				<table class="admin-table">
+			<tr>
+				<th>Email</th>
+			</tr>
+		<% @users.order(:lastname).each do |x| %>
+			<tr>
+				<td><%= link_to x.firstname + " " + x.lastname, user_path(x) %></td>
+				<td><%= link_to "Edit", edit_user_path(x)%></td>
+			</tr>
+		<% end %>
+		</table>
 	</div>
 </div>
 <% end %>

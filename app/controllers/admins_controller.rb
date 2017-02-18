@@ -7,6 +7,7 @@ class AdminsController < ApplicationController
     else
     @vendors = Vendor.all.order(:name)
     @references = Reference.all.order(:full_ref)
+    @users = User.all.where(vendor_id: current_user.vendor_id)
     
     @vendor = Vendor.find_by(id: current_user.vendor_id)
    end
