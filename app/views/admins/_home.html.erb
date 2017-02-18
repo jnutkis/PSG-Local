@@ -9,10 +9,12 @@
 				<% if x.active == 1%>
 					<tr class="active-vendor">
 						<td><%= link_to x.name, administration_vendor_path(x) %></td>
+						<td><%= link_to "Disable", administration_disable_vendor_path(x) %>
 					</tr>
 				<% elsif %>
-					<tr class="inactive-vendor">
-						<td><%= link_to x.name, administration_vendor_path(x) %></td>
+					<tr>
+						<td class="inactive-vendor"><%= link_to x.name, administration_vendor_path(x) %></td>
+						<td><%= link_to "Enable", administration_enable_vendor_path(x) %>
 					</tr>				
 				<% end %>
 			<% end %>

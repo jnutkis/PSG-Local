@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get '/administration/:id', to: "admins#vendor", as: "administration_vendor"
   get '/administration/:id/user/new', to: "admins#new_user", as: "administration_vendor_user"
   post '/administration/:id/user/new', to: 'admins#create_user'
-  
+  get '/administration/:id/disable', to: 'admins#disable_vendor', as: "administration_disable_vendor"
+  get '/administration/:id/enable', to: 'admins#enable_vendor', as: "administration_enable_vendor"
 
   
   

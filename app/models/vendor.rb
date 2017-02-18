@@ -2,6 +2,6 @@ class Vendor < ActiveRecord::Base
   has_many :products
   extend FriendlyId
   friendly_id :name
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :active, presence: true
 end

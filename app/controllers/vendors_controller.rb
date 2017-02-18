@@ -15,4 +15,5 @@ class VendorsController < ApplicationController
    redirect_to vendors_path
   end
   
+  
 end

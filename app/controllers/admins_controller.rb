@@ -54,6 +54,24 @@ class AdminsController < ApplicationController
     end
   end
   
+  def disable_vendor
+    if super?
+      @vendor = Vendor.find_by(name: params[:id])
+      @vendor.update_attribute(:active,0)
+      flash[:success] = "Account Disabled"
+      redirect_to administration_path
+    end
+  end
+  
+  def enable_vendor
+    if super?
+      @vendor = Vendor.find_by(name: params[:id])
+      @vendor.update_attribute(:active,1)
+      flash[:success] = "Account Enabled"
+      redirect_to administration_path
+    end
+  end
+  
   private
   def new_user_params
     params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :vendor_id)
