@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   delete '/logout/', to: 'sessions#destroy'
   get '/administration/', to: "admins#index"
   get '/administration/:id', to: "admins#vendor", as: "administration_vendor"
+  get '/administration/:id/user/new', to: "admins#new_user", as: "administration_vendor_user"
+  post '/administration/:id/user/new', to: 'admins#create_user'
   
 
   

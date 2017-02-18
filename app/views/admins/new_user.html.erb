@@ -1,0 +1,11 @@
+<div class="container">
+	<div class="row">
+		<%= bootstrap_form_for @user, url:administration_vendor_user_path, :html => {class: "col-sm-6 login-form"} do |f| %>
+			<%= f.email_field :email %>
+			<%= f.text_field :firstname, label: "First Name" %>
+			<%= f.text_field :lastname, label: "Last Name" %>
+		  	<%= f.submit "Create User" %>
+		<% end %>
+	</div>
+</div>
+

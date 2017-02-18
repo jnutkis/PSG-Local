@@ -28,4 +28,34 @@ class AdminsController < ApplicationController
     
   end
   
+  def new_user
+    if !super? #check for super_user, if not redirect
+      redirect_to administration_path
+    end 
+    @vendor = Vendor.find_by(name: params[:id])
+    @user = User.new
+    if @vendor.nil? #if vendor not found, redirect
+      flash[:danger] = "Vendor Not Found"
+      redirect_to administration_path
+    end
+  end
+  
+  def create_user
+    @user = User.new(new_user_params)
+    @vendor = Vendor.find_by(name: params[:id])
+    @user.vendor_id = @vendor.id
+    if @user.save
+      @user.send_activation_email
+      flash[:success] = "User has been sent an activation email"
+      redirect_to administration_url
+    else
+      flash[:danger] = @user.errors.full_messages.to_sentence
+      render 'new' 
+    end
+  end
+  
+  private
+  def new_user_params
+    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :vendor_id)
+  end
 end

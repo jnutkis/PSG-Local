@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   has_secure_password
   validates :password, presence:true, allow_nil: true, :format => {:with => /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}\z/, message: "must be at least 8 characters and include at least one number, one uppercase letter, one lowercase letter, and one special character."}
-
+  validates :vendor_id, presence: true
   
   # Returns a random token.
   def User.new_token
