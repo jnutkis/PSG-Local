@@ -1,6 +1,7 @@
 <% if @right %>
 <div class="container">
 	<div class="row">
+		<h1>My Profile</h1>
 		<%= bootstrap_form_for @user, :html => {class: "col-sm-6 login-form"} do |f| %>
 			<%= f.email_field :email, :readonly => true %>
 			<%= f.text_field :firstname, label: "First Name" %>
