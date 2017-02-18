@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
   attr_accessor :activation_token, :temporary_token
-  before_create :create_activation_digest, :create_temp_digest
+  before_create :create_activation_digest
+  before_validation :create_temp_digest, on: :create 
   before_save :downcase_email
-  before_validation :user_defaults
   validates :firstname, presence:true, length: {maximum:55}
   validates :lastname, presence:true, length: {maximum:55}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 },format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   has_secure_password
   validates :password, presence:true, length: { minimum: 8 }, allow_nil: true
   
@@ -14,8 +15,8 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
   
-   def User.temp_token
-    SecureRandom.urlsafe_base64(12)
+  def User.temp_token
+    SecureRandom.urlsafe_base64(8)
   end
   
   def authenticated?(attribute, token)
@@ -34,6 +35,7 @@ class User < ActiveRecord::Base
   def activate
     update_attribute(:active,    1)
     update_attribute(:activated_at, Time.zone.now)
+    update_attribute(:admin, 1)
   end
 
   # Sends activation email.
@@ -60,11 +62,5 @@ class User < ActiveRecord::Base
       self.password_digest = User.digest(temporary_token)
     end
       
-    def user_defaults
-      if self.password_digest.nil?
-        self.update_attribute(:admin, 1)
-        self.update_attribute(:password, SecureRandom.urlsafe_base64)
-      end
-    end
   
 end

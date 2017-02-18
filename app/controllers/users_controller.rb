@@ -9,12 +9,12 @@ class UsersController < ApplicationController
     def create
     @user = User.new(new_user_params)
     @user.vendor_id = current_user.vendor_id
-    if @user.save!
+    if @user.save
       @user.send_activation_email
-      flash[:info] = "User has been sent an activation email"
+      flash[:success] = "User has been sent an activation email"
       redirect_to administration_url
     else
-      redirect_to root_path
+      render 'new' 
     end
   end
   
@@ -33,7 +33,6 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
-    @vendor = Vendor.find(current_user.id)
     @right = true if current_user.id == params[:id].to_i
     if !logged_in? || current_user.vendor_id != User.find(params[:id]).vendor_id
       redirect_to root_path
@@ -49,9 +48,9 @@ class UsersController < ApplicationController
     end
     if @user.update_attributes(user_params)
       redirect_to administration_path
-    elsif 
-      flash.now[:danger] = "Error"
-      render 'edit'
+    elsif
+      flash[:danger] = @user.errors.full_messages.to_sentence
+      redirect_to edit_user_path
      
     end
     rescue ActiveRecord::RecordNotFound
@@ -64,7 +63,7 @@ class UsersController < ApplicationController
   end
   
    def new_user_params
-    params.require(:user).permit(:email, :firstname, :lastname)
+    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
   end
 
 end

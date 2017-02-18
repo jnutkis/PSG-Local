@@ -1,9 +1,6 @@
 <% if @right %>
 <div class="container">
 	<div class="row">
-		<% if flash[:danger] %>
-		<p><%= flash[:danger] %></p>
-		<% end %>
 		<%= bootstrap_form_for @user, :html => {class: "col-sm-6 login-form"} do |f| %>
 			<%= f.email_field :email, :readonly => true %>
 			<%= f.text_field :firstname, label: "First Name" %>
@@ -17,9 +14,6 @@
 <% elsif%>
 <div class="container">
 	<div class="row">
-		<% if flash[:danger] %>
-		<p><%= flash[:danger] %></p>
-		<% end %>
 		<%= bootstrap_form_for @user, :html => {class: "col-sm-6 login-form"} do |f| %>
 			<%= f.check_box :active,{},1 %>
 			<%= f.email_field :email, :readonly => true %>

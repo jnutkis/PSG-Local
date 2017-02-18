@@ -13,6 +13,9 @@
   	<div id="wrapper">
 	  	<%= render 'layouts/navbarleft' %>
 	    <div id="page-content-wrapper">
+	    	<% flash.each do |key, msg| %>
+			  <%= content_tag :div, msg, :id => key %>
+			<% end %>
 	    <%= yield %>
 	    <%= render 'layouts/footer' %>
 	    </div>
