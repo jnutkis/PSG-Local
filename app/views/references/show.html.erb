@@ -9,6 +9,7 @@
 	<% if @products.present? %>
 		<table class="products">
 			<% @products.each do |product| %>
+				<%if product.vendor.active == 1%>
 				<tr>
 				<td><%= link_to vendor_path(product.vendor) do %>	
 					<%= image_tag product.vendor.logo, class: "product-logo" %></td>
@@ -17,6 +18,7 @@
 				<td><%= product.description[0...100] %>
 				<%= link_to "[more]",vendor_product_path(product.vendor,product) %></td>
 				</tr>
+				<% end %>
 			<% end %>
 		</table>
 		<%= paginate @products %>
