@@ -7,10 +7,10 @@ class PasswordResetsController < ApplicationController
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
-      flash[:success] = "If exists, email sent with password reset instructions"
+      flash[:success] = "If the email existed, password reset instructions were sent"
       redirect_to login_path
     else
-      flash[:success] = "If exists, email sent with password reset instructions"
+      flash[:success] = "If the email existed, password reset instructions were sent"
       redirect_to login_path
     end
   end

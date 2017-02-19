@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   post '/administration/:id/user/new', to: 'admins#create_user'
   get '/administration/:id/disable', to: 'admins#disable_vendor', as: "administration_disable_vendor"
   get '/administration/:id/enable', to: 'admins#enable_vendor', as: "administration_enable_vendor"
+  get '/update-password', to: 'users#force_pw', as: "user_update_password"
+  post '/update-password', to: 'users#update_pw'
+  patch '/update-password', to: 'users#update_pw'
 
   
   

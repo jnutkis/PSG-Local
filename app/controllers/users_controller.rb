@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include UsersHelper
-  before_action :active?,:vendor_active?
+  before_action :active?,:vendor_active?,:force_password
   
     def new
       @user = User.new
@@ -61,6 +61,37 @@ class UsersController < ApplicationController
       redirect_to root_path
   end
   
+  def force_pw
+    @user = current_user
+    if !logged_in?
+      redirect_to root_path
+    end
+    if @user.newpw != 1
+       redirect_to administration_path
+    end
+  end
+  
+  def update_pw
+    @user = current_user
+    if !logged_in?
+      redirect_to root_path
+    end
+    if @user.newpw == 1
+      if @user.update_attributes(password_params)
+        @user.update_attribute(:newpw, 0)
+        flash[:success] = "Password Updated"
+        redirect_to administration_path
+      elsif
+        flash[:danger] = @user.errors.full_messages.to_sentence
+        render 'force_pw'
+      end
+    else
+      redirect_to administration_path
+    end
+  end
+  
+  
+  
   private
   def user_params
     params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :active)
@@ -69,5 +100,10 @@ class UsersController < ApplicationController
    def new_user_params
     params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
   end
+  
+  def password_params
+    params.require(:user).permit(:password,:password_confirmation)
+  end
+
 
 end
