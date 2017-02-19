@@ -60,6 +60,9 @@ class AdminsController < ApplicationController
       @vendor.update_attribute(:active,0)
       flash[:success] = "Account Disabled"
       redirect_to administration_path
+    else
+      flash[:danger] = "You don't have permission to do that!"
+      redirect_to root_path
     end
   end
   
@@ -69,6 +72,9 @@ class AdminsController < ApplicationController
       @vendor.update_attribute(:active,1)
       flash[:success] = "Account Enabled"
       redirect_to administration_path
+    else
+      flash[:danger] = "You don't have permission to do that!"
+      redirect_to root_path
     end
   end
   
