@@ -12,29 +12,29 @@
 
 ActiveRecord::Schema.define(version: 20170219181738) do
 
-  create_table "associations", force: :cascade do |t|
+  create_table "associations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "reference_id"
     t.integer "product_id"
-    t.index ["product_id"], name: "index_associations_on_product_id"
-    t.index ["reference_id"], name: "index_associations_on_reference_id"
+    t.index ["product_id"], name: "index_associations_on_product_id", using: :btree
+    t.index ["reference_id"], name: "index_associations_on_reference_id", using: :btree
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "name"
-    t.text    "description"
+    t.text    "description", limit: 65535
     t.string  "url"
     t.integer "vendor_id"
-    t.index ["vendor_id"], name: "index_products_on_vendor_id"
+    t.index ["vendor_id"], name: "index_products_on_vendor_id", using: :btree
   end
 
-  create_table "references", force: :cascade do |t|
+  create_table "references", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "full_ref"
     t.string   "short_ref"
-    t.text     "specification"
+    t.text     "specification", limit: 65535
     t.datetime "updated_at"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "firstname"
     t.string   "lastname"
     t.integer  "vendor_id"
@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(version: 20170219181738) do
     t.datetime "reset_sent_at"
     t.integer  "password_fails",    default: 0
     t.datetime "locked_at"
-    t.index ["vendor_id"], name: "index_users_on_vendor_id"
+    t.index ["vendor_id"], name: "index_users_on_vendor_id", using: :btree
   end
 
-  create_table "vendors", force: :cascade do |t|
+  create_table "vendors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "name"
     t.string  "website"
     t.string  "logo"
@@ -64,4 +64,8 @@ ActiveRecord::Schema.define(version: 20170219181738) do
     t.string  "phone"
   end
 
+  add_foreign_key "associations", "products"
+  add_foreign_key "associations", "references"
+  add_foreign_key "products", "vendors"
+  add_foreign_key "users", "vendors"
 end
