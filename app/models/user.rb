@@ -58,6 +58,7 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver_now
   end
   
+  # Check if user is locked out
    def locked_out?
       if !self.locked_at.nil?
         if self.locked_at < 15.minutes.ago

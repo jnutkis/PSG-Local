@@ -7,16 +7,16 @@ class UsersController < ApplicationController
     end
   
     def create
-    @user = User.new(new_user_params)
-    @user.vendor_id = current_user.vendor_id
-    if @user.save
-      @user.send_activation_email
-      flash[:success] = "User has been sent an activation email"
-      redirect_to administration_url
-    else
-      render 'new' 
+      @user = User.new(new_user_params)
+      @user.vendor_id = current_user.vendor_id
+      if @user.save
+        @user.send_activation_email
+        flash[:success] = "User has been sent an activation email"
+        redirect_to administration_url
+      else
+        render 'new' 
+      end
     end
-  end
   
   
   
@@ -97,7 +97,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :active)
   end
   
-   def new_user_params
+  def new_user_params
     params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
   end
   

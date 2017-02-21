@@ -10,7 +10,7 @@ class AdminsController < ApplicationController
     @users = User.all.where(vendor_id: current_user.vendor_id).where.not(id: current_user.id)
     
     @vendor = Vendor.find_by(id: current_user.vendor_id)
-   end
+    end
   end
   
   def vendor

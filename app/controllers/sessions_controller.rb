@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
 
   if user #if user exists
-    if user.locked_out? #if user password time limit is in place
+  if user.locked_out? #if user password time limit is in place
     
     if user && user.authenticate(params[:session][:password]) #if exists and password matched up
       
@@ -42,10 +42,10 @@ class SessionsController < ApplicationController
     end
     
     
-   else
+    else
      flash.now[:danger] = "Account is locked for five failed password attempts. Contact Support or wait 15 minutes"
      render 'new'
-   end
+  end
    
    else 
       flash.now[:danger] = "Invalid Username and Password"

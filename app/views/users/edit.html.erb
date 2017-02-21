@@ -32,6 +32,9 @@
 			<%= f.text_field :lastname, label: "Last Name" %>
 		  	<%= f.submit "Update" %>
 		<% end %>
+		<%= bootstrap_form_for @user, url: profile_reset_password_path do |f| %>
+			<%= f.submit "Reset Password" %>
+		<% end %>
 	</div>
 </div>
 <% end %>
