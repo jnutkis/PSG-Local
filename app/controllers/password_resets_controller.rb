@@ -46,6 +46,7 @@ class PasswordResetsController < ApplicationController
           render 'users/edit'
         end
       end
+    else
     redirect_to root_path
     end
   end
