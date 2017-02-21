@@ -23,4 +23,9 @@ module UsersHelper
     end
   end
   
+  def timeDiff(user)
+    a = (Time.now - user.locked_at)/60
+    return (15 - a).to_i
+  end
+  
 end

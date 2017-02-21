@@ -14,6 +14,16 @@
 </div>
 <% elsif%>
 <div class="container">
+	<div class="row center">
+		<h1>
+			<%= @user.firstname + " " + @user.lastname + '\'s Profile' %>
+		</h1>
+			<% if @user.locked_at && @user.locked_at > 15.minutes.ago %>
+				<div class="alert alert-warning">
+				<%= "Account Locked for " + timeDiff(@user).to_s + " more minutes"%>
+				</div>
+			<% end %>
+	</div>
 	<div class="row">
 		<%= bootstrap_form_for @user, :html => {class: "col-sm-6 login-form"} do |f| %>
 			<%= f.check_box :active,{},1 %>
