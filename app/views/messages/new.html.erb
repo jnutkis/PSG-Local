@@ -3,8 +3,8 @@
         <h1>Contact us</h1>
         <%= bootstrap_form_for @message, :html => {class: "col-sm-6"} do |f| %>
             <%= f.text_area :message, label: "Enter a message" %>
-            <%= f.text_field :name, label: "Your name" %>
-            <%= f.email_field :email, label: "Your Email" %>
+            <div class="col-sm-6 message-name"><%= f.text_field :name, label: "Your name" %></div>
+            <div class="col-sm-6 message-email"><%= f.email_field :email, label: "Your Email" %></div>
             <%= f.submit "Send", class: "btn btn-info" %>
         <% end %>
     </div>

@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
             flash[:success] = "Message successfully submitted. Please allow one (1) full business day to receive a response."
             redirect_to new_message_path
         else
-            flash[:danger] = @message.errors.full_messages.to_sentence
+            flash.now[:danger] = @message.errors.full_messages.to_sentence
             render 'new'
         end
     end
