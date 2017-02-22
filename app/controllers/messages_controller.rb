@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
         if @message.save
             @message.update_attribute(:submitted_date, Time.zone.now)
             @message.send_message_to_support
-            flash[:success] = "Message Submitted. Please allow one full business to receive a reply."
+            flash[:success] = "Message successfully submitted. Please allow one(1) full business to receive a response."
             redirect_to new_message_path
         else
             flash[:danger] = @message.errors.full_messages.to_sentence
