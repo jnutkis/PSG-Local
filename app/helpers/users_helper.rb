@@ -18,7 +18,7 @@ module UsersHelper
   
   def force_password
     if current_user.newpw != 0
-      flash.now[:danger] = "Your Password must be updated"
+      flash.now[:info] = "Your Password must be updated"
       redirect_to user_update_password_path unless request.fullpath == '/update-password'
     end
   end
