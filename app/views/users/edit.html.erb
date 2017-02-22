@@ -31,9 +31,9 @@
 			<%= f.text_field :firstname, label: "First Name" %>
 			<%= f.text_field :lastname, label: "Last Name" %>
 		  	<%= f.submit "Update"%>
-		  	<%= bootstrap_form_for @user, url: profile_reset_password_path do |g| %>
-				<%= g.submit "Reset Password",class: "btn btn-warning pull-right", data: { confirm: 'Do you wish to reset this user\'s password?' } %>
-			<% end %>
+		  	<%= bootstrap_form_for @user, :url => url_for(:controller => 'password_resets', :action => 'profile_reset') do |g| %>
+		  		<% link_to "Reset Password", profile_reset_password_path(@user), method: :post, class: "pull-right btn btn-warning", data: { confirm: 'Do you wish to reset this user\'s password?'} %>
+		  	<% end %>
 		<% end %>
 	</div>
 </div>

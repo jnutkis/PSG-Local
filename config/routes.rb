@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get '/update-password', to: 'users#force_pw', as: "user_update_password"
   post '/update-password', to: 'users#update_pw'
   patch '/update-password', to: 'users#update_pw'
-  post 'user/:id/password-reset', to: 'password_resetss#profile_reset', as: "profile_reset_password"
+  get 'user/:id/password-reset', to: 'password_resets#back', as: "profile_reset_password"
+  post 'user/:id/password-reset', to: 'password_resets#profile_reset'
   patch 'user/:id/password-reset', to: 'password_resets#profile_reset'
 
   

@@ -21,6 +21,16 @@ class PasswordResetsController < ApplicationController
     
   end
   
+  def back
+    @user = User.find(params[:id])
+    if @user && (super? || admin?)
+      redirect_to edit_user_path(@user)
+    else
+      redirect_to administration_path
+    end
+  end
+  
+  
   def profile_reset
     if super?
       @user = User.find(params[:id])
@@ -40,10 +50,10 @@ class PasswordResetsController < ApplicationController
           @user.create_reset_digest
           @user.send_password_reset_email
           flash[:success] = "Password reset instructions were sent"
-          render 'users/edit'
+          redirect_to edit_user_path(@user.id)
         else 
           flash[:error] = "An error has occurred"
-          render 'users/edit'
+          redirect_to edit_user_path(@user.id)
         end
       end
     else
