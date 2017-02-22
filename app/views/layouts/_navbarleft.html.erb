@@ -24,9 +24,7 @@
                 <li><%= link_to "Home", root_path %></li>
                	<li><%= link_to "References", references_path %></li>
 		        <li><%= link_to "Vendors", vendors_path %></li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+                <li><%= link_to "Contact", new_message_path %></li>
                 <% if admin? || super? %>
                 <li class="divide"></li>
                 <li><%= link_to "My Profile", edit_user_path(current_user.id), :class => "admin-link" %></li>

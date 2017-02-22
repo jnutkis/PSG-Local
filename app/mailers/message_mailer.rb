@@ -5,7 +5,7 @@ class MessageMailer < ApplicationMailer
   #
   #   en.message_mailer.message_submitted.subject
   #
-  def message_submitted
+  def message_submitted(message)
     @message = message
 
     mail to: "james.nutkis@hitrustalliance.net", subject: "Products and Services Message Received"

@@ -1,5 +1,4 @@
-<h1>Message#message_submitted</h1>
+<h1>Message</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/message_mailer/message_submitted.html.erb
-</p>
+<p> <%= @message.message.html_safe %></p>
+<p><%= @message.email %></p>
