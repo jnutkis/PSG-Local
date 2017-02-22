@@ -10,17 +10,20 @@
 }
 
 #sidebar-wrapper{
-	opacity:.7;
+	opacity:1;
+	color: white;
+	background-color: #444242;
 }
 
 #close_menu {
 	font-size: 10px;
 	text-align: center;
+	font-weight: bold;
 }
 
 #close_menu:hover {
 	cursor: pointer;
-	color:#FFFFFF;
+	text-decoration: underline;
 }
 
 #open_menu{
@@ -49,6 +52,11 @@
 	padding-top: 20px;
 	border-top: 1px solid grey;
 }
+
+.sidebar-nav li a,.sidebar-nav > .sidebar-brand a {
+	color:white;
+}
+
 
 @media(max-width:767px) {
 	#open_menu{
