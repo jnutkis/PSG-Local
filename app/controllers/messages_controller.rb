@@ -14,14 +14,19 @@ class MessagesController < ApplicationController
             redirect_to new_message_path
         else
             flash[:danger] = @message.errors.full_messages.to_sentence
-            redirect_to new_message_path
+            render 'new'
         end
     end
 
 
+
+    def send_to_new
+        redirect_to new_message_path
+    end
+
   private
   def message_create_params
-    params.require(:message).permit(:email, :message)
+    params.require(:message).permit(:email, :message, :name)
   end
 
 end

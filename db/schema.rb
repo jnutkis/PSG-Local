@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222163507) do
+ActiveRecord::Schema.define(version: 20170222184903) do
 
   create_table "associations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "reference_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170222163507) do
     t.text     "message",        limit: 65535
     t.string   "email"
     t.datetime "submitted_date"
+    t.string   "name"
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
