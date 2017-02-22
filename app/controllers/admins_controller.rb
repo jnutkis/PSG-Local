@@ -5,11 +5,15 @@ class AdminsController < ApplicationController
     if !admin? && !super?
       redirect_to root_path
     else
-    @vendors = Vendor.all.order(:name)
+    @vendors = Vendor.all.order(:name).page(params[:page]).per(25)
     @references = Reference.all.order(:full_ref)
     @users = User.all.where(vendor_id: current_user.vendor_id).where.not(id: current_user.id)
     
     @vendor = Vendor.find_by(id: current_user.vendor_id)
+    end
+    if super?
+      @q = Vendor.all.ransack(params[:q])
+      @r = @q.result(distinct:true).order(:name).page(params[:page]).per(25)
     end
   end
   
