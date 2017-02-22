@@ -4,7 +4,7 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
-    if @user
+    if @user 
       @user.create_reset_digest
       @user.send_password_reset_email
       flash[:success] = "If the email existed, password reset instructions were sent"
@@ -18,7 +18,16 @@ class PasswordResetsController < ApplicationController
   
   
   def edit
-    
+    @user = User.find_by(email: params[:email].downcase)
+    if @user && @user.authenticated?(:reset, params[:id]) && @user.reset_sent_at > 2.hours.ago && @user.active == 1 && !logged_in?
+      @user.update_attribute(:newpw, 1)
+      @user.update_attribute(:reset_digest,nil)
+      log_in @user
+      redirect_to administration_path
+    else
+      flash[:danger] = "Password could not be reset. Contact support"
+      redirect_to login_path
+    end
   end
   
   def back
