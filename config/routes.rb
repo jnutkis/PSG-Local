@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   get 'user/:id/password-reset', to: 'password_resets#back', as: "profile_reset_password"
   post 'user/:id/password-reset', to: 'password_resets#profile_reset'
   patch 'user/:id/password-reset', to: 'password_resets#profile_reset'
-  get 'messages', to: 'messages#send_to_new'
   
   
   resources :references
@@ -28,4 +27,5 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update], :path => "password-reset"
   resources :messages, only: [:new,:create]
+  get 'messages', to: 'messages#back'
 end
