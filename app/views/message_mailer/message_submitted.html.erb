@@ -1,5 +1,4 @@
-<h1>Message</h1>
-
+<p>Message has been received submitted by <%= @message.name %> (<%= @message.email %>)</p>
+<div style="margin-top: 20px">Message:
 <p> <%= simple_format(@message.message) %></p>
-<p><%= @message.name %></p>
-<p><%= @message.email %></p>
+</div>
