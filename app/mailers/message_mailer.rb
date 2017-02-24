@@ -8,6 +8,6 @@ class MessageMailer < ApplicationMailer
   def message_submitted(message)
     @message = message
 
-    mail to: "james.nutkis@hitrustalliance.net", subject: "Products and Services Message Received"
+    mail to: ENV["message_receipient"], subject: "Products and Services Message Received"
   end
 end
