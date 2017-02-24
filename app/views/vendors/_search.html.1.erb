@@ -1,0 +1,34 @@
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :name_or_products_name_or_products_description_cont %>
+  <%= f.submit "Search", :class => 'savebtn form-group row' %>
+<% end %>
+
+<% if !@r.any? %>
+	<div id="null-results"><%= "No results found" %></div>
+<% end %>
+
+<% if @r.any? %>
+	<table id = "vendor-table-results">
+		<tr>
+			<th>Vendors</th>
+		</tr>
+		<% @r.each do |vendor|%>
+		<tr>
+			<td><%= link_to vendor.name, vendor_path(vendor) %></td>
+		</tr>
+		<% end %>
+	</table>
+<%= paginate @r %>
+<% else %>
+	<table id = "vendor-table">
+		<tr>
+			<th>Vendor</th>
+		</tr>
+		<% @vendors.each do |vendor|%>
+		<tr>
+			<td><%= link_to vendor.name, vendor_path(vendor) %></td>
+		</tr>
+		<% end %>
+	</table>
+	<%= paginate @vendors %>
+<% end %>
