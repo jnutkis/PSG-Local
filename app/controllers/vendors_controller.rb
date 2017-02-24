@@ -1,9 +1,9 @@
 class VendorsController < ApplicationController
   
   def index
-    @vendors = Vendor.where(active: 1).order(:name).page(params[:page]).per(25)
+    @vendors = Vendor.where(active: 1).order(:name).page(params[:page]).per(18)
     @q = Vendor.where(active: 1).ransack(params[:q])
-    @r = @q.result(distinct:true).order(:name).page(params[:page]).per(25)
+    @r = @q.result(distinct:true).order(:name).page(params[:page]).per(18)
   end
   
   def show
