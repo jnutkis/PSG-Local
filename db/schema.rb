@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222184903) do
+ActiveRecord::Schema.define(version: 20170226165026) do
 
   create_table "associations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "reference_id"
@@ -63,12 +63,16 @@ ActiveRecord::Schema.define(version: 20170222184903) do
   end
 
   create_table "vendors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "name"
-    t.string  "website"
-    t.string  "logo"
-    t.string  "email"
-    t.integer "active"
-    t.string  "phone"
+    t.string   "name"
+    t.string   "website"
+    t.string   "logo"
+    t.string   "email"
+    t.integer  "active"
+    t.string   "phone"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_foreign_key "associations", "products"

@@ -4,7 +4,7 @@
 		<div class="col-xs-12 vendor-head">
 		<h1>
 		<% if @vendor.logo.present? %>
-		<%= image_tag(@vendor.logo, class: "vendor-logo") %>
+		<%= image_tag(@vendor.image.url, class: "vendor-logo") %>
 		<% end %>
 		<%= @vendor.name %>
 		</h1>

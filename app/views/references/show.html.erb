@@ -12,7 +12,7 @@
 				<%if product.vendor.active == 1%>
 				<tr>
 				<td><%= link_to vendor_path(product.vendor) do %>	
-					<%= image_tag product.vendor.logo, class: "product-logo" %></td>
+					<%= image_tag product.vendor.image.url, class: "product-logo" %></td>
 				<% end %>
 				<td><%= link_to product.name,vendor_product_path(product.vendor,product) %></td>
 				<td><%= product.description[0...100] %>

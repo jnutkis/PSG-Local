@@ -13,8 +13,8 @@
 			<% @r.each do |vendor|%>
 				<%= link_to vendor_path(vendor) do %>
 					<li class="vendor-list-item">
-						<% if !vendor.logo.nil? %>
-						<%= image_tag(vendor.logo) %><br/>
+						<% if vendor.image.file? %>
+							<%= image_tag vendor.image.url %><br/>
 						<% end %>
 						<div><%= vendor.name[0...52] %></div>
 					</li>
@@ -27,7 +27,7 @@
 			<% @vendors.each do |vendor|%>
 				<%= link_to vendor_path(vendor) do %>
 					<li class="vendor-list-item">
-						<%= image_tag(vendor.logo) %><br/>
+						<%= image_tag vendor.image.url %><br/>
 						<%= vendor.name[0...52] %>
 					</li>
 				<% end %>

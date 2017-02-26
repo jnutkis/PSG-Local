@@ -1,8 +1,9 @@
 <div class="container">
     <div class="row">
         <h1><%= @vendor.name %></h1>
-        <%= bootstrap_form_for @vendor, :html => {class: "col-sm-6"} do |f| %>
+        <%= bootstrap_form_for @vendor, :html => {class: "col-sm-6",:multipart => true }  do |f| %>
             <%= f.text_field :name, label: "Name" %>
+            <%= f.file_field :image %>
             <%= f.url_field :website, label: "Website" %>
             <%= f.email_field :email, label: "Email" %>
             <%= f.phone_field :phone, label: "Phone" %>
