@@ -33,7 +33,8 @@ class ProductsController < ApplicationController
       @product.vendor_id = Vendor.find_by(name: params[:vendor_id]).id
    
         if @product.save
-          redirect_to administration_path
+          flash[:success] = "#{@product.name} successfully added!"
+          redirect_to administration_vendor_path(@product.vendor.name)
         else
           render 'new'
         end
@@ -45,6 +46,7 @@ class ProductsController < ApplicationController
         @product.update(vendor: Vendor.find_by(id: current_user.vendor_id))
         
           if @product.save
+            flash[:success] = "#{@product.name} successfully added!"
             redirect_to administration_path
           else
             flash[:danger] = @product.errors.full_messages.to_sentence
@@ -88,7 +90,8 @@ class ProductsController < ApplicationController
     @product = @vendor.products.find_by(id: params[:id])
     @updated = @product.update(product_params)
       if @updated
-        redirect_to administration_path
+        flash[:success] = "#{@product.name} successfully updated!"
+        redirect_to administration_vendor_path(@product.vendor.name)
       else
         flash[:danger] = @product.errors.full_messages.to_sentence
         redirect_to new_vendor_product_path
@@ -99,6 +102,7 @@ class ProductsController < ApplicationController
         @product = @vendor.products.find_by(id: params[:id])
         @updated = @product.update(product_params)
           if @updated
+            flash[:success] = "#{@product.name} successfully updated!"
             redirect_to administration_path
           else
             flash[:danger] = @product.errors.full_messages.to_sentence
