@@ -2,10 +2,10 @@
 <div class="container">
 	<div class="row center">
 		<div class="col-xs-12 vendor-head">
-		<h1>
 		<% if @vendor.image.file? %>
 		<%= image_tag(@vendor.image.url, class: "vendor-logo") %>
 		<% end %>
+		<h1>
 		<%= @vendor.name %>
 		</h1>
 	</div>
