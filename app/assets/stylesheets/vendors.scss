@@ -62,9 +62,18 @@
 
 .vendor-list-item img {
   height: 30px;
-  line-height:50px;
+  line-height: 50px;
 }
 
 .vendor_search {
   margin-bottom: 20px;
+}
+
+.vendor-logo-preview {
+  margin: 10px 0 10px 15px;
+}
+
+.vendor-logo-preview > img {
+  height: 25px;
+  width: auto;
 }
