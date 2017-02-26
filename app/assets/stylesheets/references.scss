@@ -13,6 +13,14 @@
   margin-top: 20px;
 }
 
+#reference-table-results tr:nth-child(even) {
+  background-color: #E0F2F7;
+}
+
+#reference-table-results td:first-child {
+  width: 33.33%;
+}
+
 #reference-table-results {
   margin-top: 30px;
 }

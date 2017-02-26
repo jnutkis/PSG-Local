@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.11'
 # gem 'capistrano-rails', group: :development
 
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
-gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
+gem 'kaminari', '~> 0.17.0'
 gem 'ransack', github: 'activerecord-hackery/ransack', :branch => 'master'
 gem 'bootstrap_form'
 gem 'active_model_otp'

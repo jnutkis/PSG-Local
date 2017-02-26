@@ -11,12 +11,10 @@
 <table id = "reference-table-results">
 	<tr>
 		<th>Control Reference</th>
-		<th>Control Specification</th>
 	</tr>
 	<% @r.each do |ref|%>
 	<tr>
 		<td><%= link_to ref.full_ref, reference_path(ref) %></td>
-		<td><%= strip_tags(ref.specification) %></td>
 	</tr>
 	<% end %>
 </table>
@@ -25,13 +23,10 @@
 	<table id = "reference-table">
 		<tr>
 			<th>Control Reference</th>
-			<th>Control Specification</th>
-		</tr>
 		</tr>
 		<% @references.each do |ref|%>
 		<tr>
 			<td><%= link_to ref.full_ref, reference_path(ref) %></td>
-			<td><%= strip_tags(ref.specification) %></td>
 		</tr>
 		<% end %>
 	</table>
