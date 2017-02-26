@@ -26,3 +26,10 @@
 .no-decoration {
   text-decoration: none;
 }
+
+
+@media (max-width: 967px) {
+  .admin-table-half {
+    width: 100%;
+  }
+}

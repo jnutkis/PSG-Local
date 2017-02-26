@@ -17,3 +17,10 @@
 		<% end %>
 	</div>	
 </div>
+<div class="container">
+	<div class="row center">
+		<% if !logged_in? %>
+			<%= link_to "Vendor? Log-in here", login_path, class: "login-small"%>
+		<% end %>
+	</div>
+</div>

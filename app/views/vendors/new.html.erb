@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <h1>New Vendor</h1>
+        <%= bootstrap_form_for @vendor, :html => {class: "col-sm-6"} do |f| %>
+            <%= f.text_field :name, label: "Name" %>
+            <%= f.url_field :website, label: "Website" %>
+            <%= f.email_field :email, label: "Email" %>
+            <%= f.phone_field :phone, label: "Phone" %>
+            <%= f.submit %>
+        <% end %>
+    </div>
+</div>

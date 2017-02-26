@@ -2,6 +2,12 @@
   <%= f.search_field :name_cont %>
   <%= f.submit "Search", :class => 'savebtn form-group row' %>
 <% end %>
+<div id="vendor-head">
+	<div id = "vendor-label">Vendor</div>
+	<%= link_to new_vendor_path do %>
+		<button type="button" class="btn btn-success pull-right add-vendor">Add New</button>
+	<% end %>
+</div>
 
 <% if !@r.any? %>
 	<div id="null-results"><%= "No results found" %></div>
@@ -9,18 +15,17 @@
 
 <% if @r.any? %>
 		<table class="admin-table-half">
-			<tr>
-				<th>Vendor</th>
-			</tr>
 			<% @r.order(:name).each do |x| %>
 				<% if x.active == 1%>
 					<tr class="active-vendor">
 						<td><%= link_to x.name, administration_vendor_path(x) %></td>
+						<td><%= link_to "Edit", edit_vendor_path(x) %></td>
 						<td><%= link_to "Disable", administration_disable_vendor_path(x), data: {confirm: "Are you sure?"} %>
 					</tr>
 				<% elsif %>
 					<tr>
 						<td class="inactive-vendor"><%= link_to x.name, administration_vendor_path(x) %></td>
+						<td></td>
 						<td><%= link_to "Enable", administration_enable_vendor_path(x), data: {confirm: "Are you sure?"} %>
 					</tr>				
 				<% end %>

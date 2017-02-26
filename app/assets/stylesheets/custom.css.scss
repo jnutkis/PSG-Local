@@ -12,7 +12,7 @@ body{
 .navbar {
   border-radius: 0;
   font-weight: bold;
-  background-color: #B2AD73;
+  background-color: #444242;
   box-shadow: 0px 10px 10px lightgrey;
 }
 
@@ -90,3 +90,18 @@ h1 {
 .inactive-user {
   text-decoration: line-through;
 }
+
+#vendor-head {
+  font-size: 20px;
+  width: 50%;
+  height: 50px;
+  vertical-align:bottom;
+  line-height:50px;
+}
+
+#vendor-label {
+  float:left;
+  width:50%;
+}
+
+
