@@ -26,23 +26,22 @@
 	<% end %>
 	</tbody>
 </table>
+<%= paginate @r %>
 <% else %>
-<table id = "reference-table-results">
-	<thead>
+	<table id = "reference-table">
 		<tr>
 			<th>Control Reference</th>
 			<th>Control Specification</th>
 		</tr>
-	</thead>
-	<tbody>
-	<% @references.each do |ref|%>
-	<tr>
-		<td><%= link_to ref.full_ref, reference_path(ref) %></td>
-		<td><%= strip_tags(ref.specification) %></td>
-	</tr>
-	<% end %>
-	</tbody>
-</table>
+		</tr>
+		<% @references.each do |ref|%>
+		<tr>
+			<td><%= link_to ref.full_ref, reference_path(ref) %></td>
+			<td><%= strip_tags(ref.specification) %></td>
+		</tr>
+		<% end %>
+	</table>
+	<%= paginate @references %>
 <% end %>	
 
 
