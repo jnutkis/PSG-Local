@@ -1,1 +1,0 @@
-$('#reference-table-results').DataTable({});
