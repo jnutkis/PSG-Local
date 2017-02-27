@@ -45,3 +45,8 @@ table.products td {
 table.products tr:nth-child(even) {
   background-color: #E0F2F7;
 }
+
+#reference-table-results th {
+  border-bottom: 1px solid grey;
+  text-align: center;
+}

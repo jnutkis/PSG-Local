@@ -15,4 +15,4 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 
-//= references.js
+//= require references.js
