@@ -1,4 +1,12 @@
 $( document ).ready(function () {
+  if ($('#reference-table-results_wrapper').length == 1) { 
+    $('#reference-table-results_wrapper').remove();
+    location.reload(true);
+}});
+
+
+
+$( document ).ready(function () {
     $('#reference-table-results').DataTable({
     aLengthMenu: [
         [15,50, 100, -1],
@@ -8,3 +16,12 @@ $( document ).ready(function () {
     
     });
 });
+
+/*$( document ).ready(function () {
+    $("#reference-table-results > tbody  tr").mouseover(function() {
+        $(this).css("background-color","lightgrey");
+    });
+    $("#reference-table-results > tbody  tr").mouseout(function() {
+        $(this).css("background-color","initial");
+    });   
+});*/
