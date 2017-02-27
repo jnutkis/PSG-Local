@@ -60,3 +60,7 @@ table.products tr:nth-child(even) {
 #reference-table-results > tbody  tr:hover{
   background-color: #e8e7e7;
 }
+
+#reference-table-results > tbody  tr:last-child {
+  border-bottom: 1px solid grey;
+}
