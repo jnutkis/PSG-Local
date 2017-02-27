@@ -4,10 +4,11 @@
 	  <%= f.submit "Search", :class => 'savebtn form-group row' %>
 	<% end %>
 </div>
-<div id="table-container">
 <% if !@r.any? %>
 	<div id="null-results"><%= "No results found" %></div>
 <% end %>
+<div id="table-container">
+
 
 <% if @r.any? %>
 <table id = "reference-table-results">
