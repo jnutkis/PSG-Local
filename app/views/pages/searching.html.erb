@@ -1,11 +1,13 @@
+<div class = "container-fluid">
+    <div class="row">
 <%= form_tag search_path, method: :get do %>
-  <%= text_field_tag :q, nil %>
+  <%= text_field_tag :q, params[:q] %>
 <% end %>
-
+<div id ="search-container">
 <% if !@refs.any? && !@products.any? && !@vendors.any? %>
     <div>No results found</div>
 <% else %>
-    <table>
+    <table id = "table-search-result">
         <thead>
             <th>Result</th>
             <th>Type</th>
@@ -32,3 +34,6 @@
         </tbody>
     </table>
 <% end %>
+        </div>
+    </div>
+</div>
