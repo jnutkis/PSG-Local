@@ -48,13 +48,14 @@ class AdminsController < ApplicationController
     @user = User.new(new_user_params)
     @vendor = Vendor.find_by(name: params[:id])
     @user.vendor_id = @vendor.id
+    @user.admin = 1
     if @user.save
       @user.send_activation_email
       flash[:success] = "User has been sent an activation email"
       redirect_to administration_url
     else
       flash[:danger] = @user.errors.full_messages.to_sentence
-      render 'new' 
+      render 'new_user' 
     end
   end
   

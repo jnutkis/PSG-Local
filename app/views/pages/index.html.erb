@@ -1,6 +1,14 @@
+<div class="jumbotron center">
+		<%= image_tag "hitrust.png",class: 'brand center'%>
+		<h1>Products and Services Guide</h1>
+		<%= form_tag search_path, method: :get, id: "search" do%>
+  			<%= text_field_tag :q, params[:q], placeholder: "search..." %>
+		<% end %>
+</section>
+</div>
+
+
 <div class="container-fluid center">
-	<%= image_tag "hitrust.png",class: 'brand center' %>
-	<h1>Products and Services Guide</h1>
 	<div class="row">
 		<%= link_to references_path do%>
 			<div class="col-md-5 search-tile" id="search-ref">
@@ -16,7 +24,7 @@
 			</div>
 		<% end %>
 	</div>	
-</div>
+	</div>
 <div class="container">
 	<div class="row center">
 		<% if !logged_in? %>

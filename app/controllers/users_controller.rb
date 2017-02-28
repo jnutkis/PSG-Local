@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     def create
       @user = User.new(new_user_params)
       @user.vendor_id = current_user.vendor_id
+      @user.admin = 1
       if @user.save
         @user.send_activation_email
         flash[:success] = "User has been sent an activation email"
