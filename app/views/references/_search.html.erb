@@ -1,13 +1,14 @@
-<div class="searching">
+<div id="table-container">
+<div class="search-wrap">
 	<%= search_form_for @q do |f| %>
-	  <%= f.search_field :full_ref_or_specification_or_products_name_or_products_description_cont, :class => "searching-field" %>
-	  <%= f.submit "Search", :class => 'savebtn form-group row' %>
+	  <%= f.search_field :full_ref_or_specification_or_products_name_or_products_description_cont, :class => "search-input" %>
+	  <span class="glyphicon glyphicon-search search-glass"></span>
 	<% end %>
 </div>
 <% if !@r.any? %>
 	<div id="null-results"><%= "No results found" %></div>
 <% end %>
-<div id="table-container">
+
 
 
 <% if @r.any? %>
