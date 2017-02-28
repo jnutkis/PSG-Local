@@ -43,14 +43,18 @@
     outline:none;
     width:180px;
     color:white;
+    height:100%;
 }
 
 .search-wrap {
     border:1px solid grey;
     width: 200px;
-    height:25px;
+    height:30px;
     background-color: #444242;
     margin-bottom: 10px;
+    line-height: 30px;
+    vertical-align:middle;
+    overflow:hidden;
 }
 
 .search-glass {

@@ -1,5 +1,6 @@
 <div class = "container-fluid">
     <div class="row">
+        <h1 class="center">Search</h1>
         <div id ="search-container">
         <%= form_tag search_path, method: :get, class:"search-wrap" do %>
           <%= text_field_tag :q, params[:q], class:"search-input" %>
