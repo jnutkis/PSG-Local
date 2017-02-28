@@ -19,7 +19,9 @@
 				<% if x.active == 1%>
 					<tr class="active-vendor">
 						<td><%= link_to x.name, administration_vendor_path(x) %></td>
-						<td><%= link_to "Edit", edit_vendor_path(x) %></td>
+						<td><%= link_to edit_vendor_path(x) do %>
+						<span class="glyphicon glyphicon-pencil"></span>
+						<% end %></td>
 						<td><%= link_to "Disable", administration_disable_vendor_path(x), data: {confirm: "Are you sure?"} %>
 					</tr>
 				<% elsif %>

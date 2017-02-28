@@ -13,8 +13,12 @@
 		<% @vendor.products.order(:name).each do |x| %>
 			<tr>
 				<td><%= link_to x.name, vendor_product_path(x.vendor.name,x) %></td>
-				<td><%= link_to "Edit", edit_vendor_product_path(@vendor.name,x.id)%></td>
-				<td><%= link_to "Delete",vendor_product_path(@vendor.name,x.id), method: :delete, data: {confirm: "Do you wish to delete this Product?"} %></td>
+				<td><%= link_to edit_vendor_product_path(@vendor.name,x.id)  do %>
+				<span class="glyphicon glyphicon-pencil"></span>
+				<% end %></td>
+				<td><%= link_to vendor_product_path(@vendor.name,x.id), method: :delete, data: {confirm: "Do you wish to delete this Product?"} do %>
+				<span class="glyphicon glyphicon-trash"></span>
+				<% end %></td>
 			</tr>
 		<% end %>
 		</table>
@@ -29,12 +33,16 @@
 			<% if x.active != 1%>
 			<tr>
 				<td class="inactive-user"><%= x.firstname + " " + x.lastname %></td>
-				<td><%= link_to "Edit", edit_user_path(x)%></td>
+				<td><%= link_to  edit_user_path(x) do %>
+				<span class="glyphicon glyphicon-pencil"></span>
+				<% end %></td>
 			</tr>
 			<% else %>
 			<tr>
 				<td class="active-user"><%= x.firstname + " " + x.lastname %></td>
-				<td><%= link_to "Edit", edit_user_path(x)%></td>
+				<td><%= link_to edit_user_path(x) do %>
+				<span class="glyphicon glyphicon-pencil"></span>
+				<% end %></td>
 			</tr>
 			<% end %>
 		<% end %>

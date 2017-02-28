@@ -17,6 +17,17 @@ $( document ).ready(function () {
     });
 });
 
+
+$( document ).ready(function () {
+    $("#table-container").click(function(){
+        $("tbody tr").dblclick(function(){
+            var ref = $(this).children().find('a').attr('href');
+            window.location.href = ref;
+        });
+    });
+});
+
+
 /*$( document ).ready(function () {
     $("#reference-table-results > tbody  tr").mouseover(function() {
         $(this).css("background-color","lightgrey");

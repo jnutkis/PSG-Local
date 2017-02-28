@@ -1,0 +1,26 @@
+<div class="container-fluid center">
+	<%= image_tag "hitrust.png",class: 'brand center' %>
+	<h1>Products and Services Guide</h1>
+	<div class="row">
+		<%= link_to references_path do%>
+			<div class="col-md-5 search-tile" id="search-ref">
+				<span class="glyphicon glyphicon-search"></span>
+				Search Products by CSF Reference
+			</div>
+		<% end %>
+		<div class="col-md-2"></div>
+		<%= link_to vendors_path do%>
+			<div class="col-md-5 search-tile" id="search-vendor">
+				<span class="glyphicon glyphicon-search"></span>
+				Search Products by Vendor
+			</div>
+		<% end %>
+	</div>	
+</div>
+<div class="container">
+	<div class="row center">
+		<% if !logged_in? %>
+			<%= link_to "Vendor? Log-in here", login_path, class: "login-small"%>
+		<% end %>
+	</div>
+</div>

@@ -54,12 +54,12 @@ table.products tr:nth-child(even) {
 
 #table-container {
   border: 2px solid #f5f5f5;
-  box-shadow: 0px 1px 10px #337ab7;
   padding: 15px;
 }
 
 #reference-table-results > tbody  tr:hover{
   background-color: #e8e7e7;
+  cursor: pointer;
 }
 
 #reference-table-results > tbody  tr:last-child {
@@ -67,4 +67,8 @@ table.products tr:nth-child(even) {
 }
 #reference-table-results th {
   padding-bottom: 5px;
+}
+
+#reference-table-results td {
+  padding: 10px 0;
 }
