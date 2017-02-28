@@ -1,9 +1,10 @@
 <div class = "container-fluid">
     <div class="row">
-        <%= form_tag search_path, method: :get do %>
-          <%= text_field_tag :q, params[:q] %>
-        <% end %>
         <div id ="search-container">
+        <%= form_tag search_path, method: :get, class:"search-wrap" do %>
+          <%= text_field_tag :q, params[:q], class:"search-input" %>
+          <span class="glyphicon glyphicon-search search-glass"></span>
+        <% end %>
         <% if !@refs.any? && !@products.any? && !@vendors.any? %>
             <div>No results found</div>
         <% else %>

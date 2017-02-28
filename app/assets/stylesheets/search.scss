@@ -31,3 +31,25 @@
 #table-search-result th {
   padding-bottom: 5px;
 }
+
+.search-input {
+    margin-bottom: 10px;
+    border:none;
+    background-color: #444242;
+    outline:none;
+    width:180px;
+    color:white;
+}
+
+.search-wrap {
+    border:1px solid grey;
+    width: 200px;
+    height:25px;
+    background-color: #444242;
+    margin-bottom: 10px;
+}
+
+.search-glass {
+    color:white;
+    text-align:left;
+}
