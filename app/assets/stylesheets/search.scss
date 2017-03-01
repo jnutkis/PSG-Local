@@ -91,12 +91,15 @@
     }
 
 #search input[type="text"]:focus {
-    color: #6a6f75;
+    color: #fff;
     width: 40%;
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
     -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    #box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    background-color: #444242;
+    border: 1px solid #961E1B;
+    box-shadow: 0px 0px 10px #961E1B;
     }
     
 @media (max-width: 460px) {

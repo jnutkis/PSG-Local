@@ -11,4 +11,3 @@
         $("#open_menu").css("opacity","0");
  });
  
- 

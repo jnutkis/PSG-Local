@@ -1,10 +1,11 @@
+/*Check if data table already there, if so, delete */
 $( document ).ready(function () {
   if ($('#table-search-result_wrapper').length == 1) { 
     $('#table-search-result_wrapper').remove();
     location.reload(true);
 }});
 
-
+/* Set entry groupings on data table */
 $( document ).ready(function () {
     $('#table-search-result').DataTable({
     aLengthMenu: [
@@ -16,6 +17,8 @@ $( document ).ready(function () {
     });
 });
 
+
+/* Allow double click on data table */
 $( document ).ready(function () {
     $("#search-container").click(function(){
         $("tbody tr").dblclick(function(){
@@ -24,3 +27,14 @@ $( document ).ready(function () {
         });
     });
 });
+
+
+/* Placeholder on main search */
+$( document ).ready(function () {
+    $("#q").focus(function() {
+        $(':input').removeAttr('placeholder');
+    });
+    $("#q").focusout(function() {
+        $(':input').attr('placeholder',"search...");
+    });
+})
