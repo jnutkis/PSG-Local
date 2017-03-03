@@ -38,3 +38,28 @@ $( document ).ready(function () {
         $(':input').attr('placeholder',"search...");
     });
 })
+
+
+/*Main transition animate*/
+
+$( document ).ready(function () {
+    
+    if($(".jumbotron").css("top") === "-1000px") {
+    
+    $(".jumbotron").animate({
+        top: 50
+    },1000)
+    .animate({top:0},500);
+    
+    $("#search-ref").animate({
+        left: 20
+    },1000)
+    .animate({left:0},500);    
+
+    $("#search-vendor").animate({
+        right:20
+    },1000)
+    .animate({right:0},500);
+    }
+});
+

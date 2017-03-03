@@ -1,4 +1,4 @@
-<div class="jumbotron center">
+<div class="jumbotron center" id="home-head" data-turbolinks-permanent>
 		<%= image_tag "hitrust.png",class: 'brand center'%>
 		<h1>Products and Services Guide</h1>
 		<%= form_tag search_path, method: :get, id: "search" do%>
@@ -11,14 +11,14 @@
 <div class="container-fluid center">
 	<div class="row">
 		<%= link_to references_path do%>
-			<div class="col-md-5 search-tile" id="search-ref">
+			<div class="col-md-5 search-tile" id="search-ref" data-turbolinks-permanent>
 				<span class="glyphicon glyphicon-search"></span>
 				Search Products by CSF Reference
 			</div>
 		<% end %>
 		<div class="col-md-2"></div>
 		<%= link_to vendors_path do%>
-			<div class="col-md-5 search-tile" id="search-vendor">
+			<div class="col-md-5 search-tile" id="search-vendor" data-turbolinks-permanent>
 				<span class="glyphicon glyphicon-search"></span>
 				Search Products by Vendor
 			</div>

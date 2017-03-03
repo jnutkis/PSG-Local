@@ -53,6 +53,8 @@ h1 {
 .jumbotron {
   border: 1px solid #444242;
   box-shadow: 0 1px 15px black;
+  position: relative;
+  top:-1000px;
 }
 
 /* Homepage Icons */
@@ -71,6 +73,8 @@ h1 {
 #search-ref {
   background-color: $hitrust-red;
   color: white; 
+  position:relative;
+  left:-1000px;
 }
 
 #search-ref:hover {
@@ -80,6 +84,8 @@ h1 {
 #search-vendor {
   background-color: $hitrust-blue;
   color: white;
+  position:relative;
+  right:-1000px;
 }
 
 
