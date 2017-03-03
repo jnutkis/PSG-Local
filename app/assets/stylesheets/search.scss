@@ -45,11 +45,12 @@
     color:white;
     height:100%;
     text-shadow: 1px 1px 3px black;
+    padding-left: 10px;
 }
 
 .search-wrap {
     border:1px solid grey;
-    width: 200px;
+    width: 210px;
     height:30px;
     background-color: #444242;
     margin-bottom: 10px;
@@ -71,7 +72,7 @@
 
 
 #search input[type="text"] {
-    border: 0 none;
+    border: 1px solid transparent;
     font: bold 16px Arial,Helvetica,Sans-serif;
     width:30%;
     padding: 6px 15px 6px 35px;
