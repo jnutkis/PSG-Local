@@ -10,3 +10,5 @@ Fix Bcrypt: https://github.com/codahale/bcrypt-ruby/issues/139
 CSV Import LOAD DATA INFILE '/var/lib/mysql-files/references.csv' INTO TABLE `references` FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ;  
 Smart Listing: https://github.com/Sology/smart_listing
                https://rails.devcamp.com/ruby-gem-walkthroughs/view-template-tools/smart-listing-tutorial
+               
+Modal: http://bootsnipp.com/snippets/featured/clean-modal-login-form

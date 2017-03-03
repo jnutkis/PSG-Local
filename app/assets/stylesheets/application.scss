@@ -12,18 +12,22 @@
  *
  *
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require rails_bootstrap_forms
  */
 
-//= require rails_bootstrap_forms
-//= require simple-sidebar
-//= require pages
-//= require products
-//= require references
-//= require vendors
-//= require custom
-//= require users
-//= require nav
-//= require login
-//= require admins
-//= require messages
-//= require search
+
+
+@import "vars";
+@import "simple-sidebar";
+@import "pages";
+@import "references";
+@import "vendors";
+@import "custom";
+@import "users";
+@import "nav";
+@import "admins";
+@import "messages";
+@import "search";
+
+
+

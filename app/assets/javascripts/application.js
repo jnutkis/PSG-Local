@@ -19,6 +19,5 @@
 //= require turbolinks
 //= require turbolinks-compatibility
 
-
 //= require reference.js
 //= require search.js

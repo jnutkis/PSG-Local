@@ -69,7 +69,7 @@ h1 {
 }
 
 #search-ref {
-  background-color: #961E1B;
+  background-color: $hitrust-red;
   color: white; 
 }
 
@@ -78,7 +78,7 @@ h1 {
 }
 
 #search-vendor {
-  background-color: #121536;
+  background-color: $hitrust-blue;
   color: white;
 }
 
@@ -107,5 +107,3 @@ h1 {
   float:left;
   width:50%;
 }
-
-
