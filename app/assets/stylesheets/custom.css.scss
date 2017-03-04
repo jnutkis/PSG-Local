@@ -48,6 +48,7 @@ body{
 
 h1 {
   font-family: 'Kreon', serif;
+  color: #000000;
 }
 
 .jumbotron {
@@ -55,6 +56,7 @@ h1 {
   box-shadow: 0 1px 15px black;
   position: relative;
   top:-1000px;
+  background: rgba(178,173,115,.75);
 }
 
 /* Homepage Icons */
@@ -118,3 +120,5 @@ h1 {
   cursor:pointer;
   color: $hitrust-red;
 }
+
+
