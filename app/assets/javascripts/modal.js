@@ -20,7 +20,7 @@ var sizing = function(){
         height: height,
         width: width
     })
-    if (width >= 450) {    
+    if (width >= 480) {    
    $(".modal-box").css({
         height: height/2,
         width: width/2,

@@ -21,3 +21,4 @@
 //= require reference.js
 //= require search.js
 //= require modal.js
+//= require vendor.js
