@@ -22,3 +22,4 @@
 //= require search.js
 //= require modal.js
 //= require vendor.js
+//= require global.js
