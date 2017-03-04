@@ -1,0 +1,22 @@
+.outer-modal {
+    z-index: 9999;
+    background-color: rgba(0,0,0,.8);
+    position:absolute;
+    top: 0;
+    .modal-box {
+        overflow: hidden;
+        background-color: #fff;
+        border-radius: 5px;
+        opacity: 1;
+        padding: 2%;
+        position:relative;
+        max-height: 350px;
+    }
+    .modal-close {
+        position:relative;
+        cursor:pointer;
+    }
+    .modal-close:hover {
+        text-decoration:underline;
+    }
+} /*Outer Modal End*/

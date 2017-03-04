@@ -11,3 +11,10 @@
         $("#open_menu").css("opacity","0");
  });
  
+ $(".sidebar-brand").click(function() {
+  modalShow();
+ })
+ 
+  $(".login-small").click(function() {
+  modalShow();
+ })

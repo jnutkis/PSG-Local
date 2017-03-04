@@ -8,10 +8,8 @@
                 </li>
                 <% if !logged_in? %> <!-- If Not Logged in, Show log-in button-->
 	                <li class="sidebar-brand" id="login">
-	                    <%= link_to login_path do %>
 	                       <span class="glyphicon glyphicon-user"></span>
 	                        Log-in
-	                    <% end %>
 	                </li>
                 <% elsif logged_in? %> <!-- Else if a user is logged in, show logout button-->
                  	<li class="sidebar-brand">

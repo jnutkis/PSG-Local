@@ -35,7 +35,7 @@ $( document ).ready(function () {
         $(':input').removeAttr('placeholder');
     });
     $("#q").focusout(function() {
-        $(':input').attr('placeholder',"search...");
+        $('#q:input').attr('placeholder',"search...");
     });
 })
 
