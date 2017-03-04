@@ -63,3 +63,42 @@ $( document ).ready(function () {
     }
 });
 
+
+/*Main Search Submit */
+var submitSearch = function(){
+    box = $("#search");
+    
+
+    
+    $(".jumbotron").animate({
+        top: -1000
+    },1000)
+    
+    $("#search-ref").animate({
+        left: -1000
+    },1000)  
+
+    $("#search-vendor").animate({
+        right: -1000
+    },1000)
+    
+    
+    
+    setTimeout(function(){
+        box.submit()
+    },500);
+};
+
+var enterSearch = function() {
+    $("#search").keydown(function(event){
+        var code = event.which;
+        if (code === 13) {
+            event.preventDefault();
+            submitSearch();
+        }
+    })
+}
+
+$(document).ready(function(){
+    enterSearch();
+})
