@@ -52,16 +52,13 @@ $( document ).ready(function () {
     .animate({top:0},500);
     
     $("#search-ref").animate({
-        left: 20
-    },1000)
-    .animate({left:0},500);    
+        left: 0
+    },1500)  
 
     $("#search-vendor").animate({
-        right:20
-    },1000)
-    .animate({right:0},500);
-    }
-});
+        right:0
+    },1500)
+}});
 
 
 /*Main Search Submit */

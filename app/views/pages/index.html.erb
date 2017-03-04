@@ -11,20 +11,20 @@
 <div class="container-fluid center">
 	<div class="row">
 		<%= link_to references_path do%>
-			<div class="col-md-5 search-tile" id="search-ref" data-turbolinks-permanent>
+			<div class="col-md-6 search-tile" id="search-ref" data-turbolinks-permanent>
 				<span class="glyphicon glyphicon-search"></span>
-				Search Products by CSF Reference
+				View Products by CSF Reference
 			</div>
 		<% end %>
-		<div class="col-md-2"></div>
 		<%= link_to vendors_path do%>
-			<div class="col-md-5 search-tile" id="search-vendor" data-turbolinks-permanent>
+			<div class="col-md-6 search-tile" id="search-vendor" data-turbolinks-permanent>
 				<span class="glyphicon glyphicon-search"></span>
-				Search Products by Vendor
+				View Products by Vendor
 			</div>
 		<% end %>
 	</div>	
-	</div>
+</div>
+
 <div class="container">
 	<div class="row center">
 		<% if !logged_in? %>
