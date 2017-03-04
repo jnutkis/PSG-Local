@@ -9,29 +9,32 @@ var sizing = function(){
         height = $("#sidebar-wrapper").outerHeight();
     }
     
+    
+    
+    
     if ($("html").width() > 0) {
         width = $("html").width();
     } else {
         width = $("#page-content-wrapper").outerWidth() + $(".footer").outerWidth;
     }
     
-
+    /*Outer Modal*/
     $(".outer-modal").css({
         height: height,
         width: width
     })
+    
+    /*Modal Box Note: top set under modalShow()*/
     if (width >= 480) {    
    $(".modal-box").css({
         height: height/2,
         width: width/2,
-        top: height/4,
         left: width/4
     });
     } else {
    $(".modal-box").css({
         height: height,
         width: width,
-        top: height/4,
         left: 0
     });        
     }
@@ -43,7 +46,11 @@ var modalShow = function() {
     var size = sizing();
     $(".modal-box").hide();
     $(".outer-modal").show();
-    $(".modal-box").show().css({top:-200}).animate({top: size[0]/4} ,500);
+    if (size[1]>= 480) {
+    $(".modal-box").show().css({top:-200}).animate({top: size[0]/8} ,500);
+    } else {
+    $(".modal-box").show().css({top:-200}).animate({top: 0} ,500);    
+    }
 };
 
 var modalClose = function(){
@@ -51,14 +58,10 @@ var modalClose = function(){
 };
 
 
-var modal = function(){
-    $(".outer-modal").hide();
-    sizing();
-};
 
 
 $(document).ready(function() {
-    modal();
+    sizing();
 });
 
 $(window).resize(function() {
