@@ -20,12 +20,21 @@ var sizing = function(){
         height: height,
         width: width
     })
+    if (width >= 450) {    
    $(".modal-box").css({
         height: height/2,
         width: width/2,
         top: height/4,
         left: width/4
-    })
+    });
+    } else {
+   $(".modal-box").css({
+        height: height,
+        width: width,
+        top: height/4,
+        left: 0
+    });        
+    }
     
     return [height,width]
 };
