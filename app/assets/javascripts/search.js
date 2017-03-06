@@ -108,6 +108,14 @@ var searchHover = function() {
         a();
     }); 
     
+    $("#nav-search-wrap input").focus(function(){
+        $(this).css({background: "#fff", color: "#444242"});
+    });
+    
+    $("#nav-search-wrap input").focusout(function(){
+        $(this).css({background: "#444242", color: "#fff"});
+    });
+    
     var a = function() {
         if ($("#nav-search-wrap").hasClass("nav-active")) {
             $("#nav-search").css("width","100%");
