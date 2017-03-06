@@ -43,6 +43,9 @@ var modalShow = function() {
 
 var modalClose = function(){
     $(".outer-modal").hide();
+    /*$(".outer-modal").click(function() {
+        $(this).hide()
+    });*/
 };
 
 

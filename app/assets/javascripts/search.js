@@ -102,11 +102,13 @@ var searchHover = function() {
         $("#nav-search-wrap").removeClass("nav-inactive").addClass("nav-active")
         a();
     });
+    
     $("#nav-search").mouseleave(function(){
+        if ($("#nav-search-wrap #q").val() === "") {
         $("#nav-glyph").toggleClass("nav-inactive nav-active");
         $("#nav-search-wrap").toggleClass("nav-inactive nav-active")
         a();
-    }); 
+    }}); 
     
     $("#nav-search-wrap input").focus(function(){
         $(this).css({background: "#fff", color: "#444242"});
