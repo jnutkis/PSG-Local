@@ -110,7 +110,9 @@ var searchHover = function() {
     
     var a = function() {
         if ($("#nav-search-wrap").hasClass("nav-active")) {
-        $("#nav-search").css("width","100%")
+            $("#nav-search").css("width","100%");
+        } else {
+            $("#nav-search").css("width","30%")
     }};
 };
 
