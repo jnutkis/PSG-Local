@@ -29,15 +29,15 @@ $( document ).ready(function () {
 });
 
 
-/* Placeholder on main search */
+/* Placeholder on main search 
 $( document ).ready(function () {
     $("#q").focus(function() {
-        $(':input').removeAttr('placeholder');
+        $('#q:input').removeAttr('placeholder');
     });
     $("#q").focusout(function() {
         $('#q:input').attr('placeholder',"search...");
     });
-})
+})*/
 
 
 /*Main transition animate*/
@@ -96,6 +96,18 @@ var enterSearch = function() {
     })
 }
 
+var searchHover = function() {
+    $("#nav-search").mouseenter(function(){
+        $("#nav-glyph").removeClass("nav-active").addClass("nav-inactive");
+        $("#nav-search-wrap").removeClass("nav-inactive").addClass("nav-active")
+    });
+    $("#nav-search").mouseleave(function(){
+        $("#nav-glyph").toggleClass("nav-inactive nav-active");
+        $("#nav-search-wrap").toggleClass("nav-inactive nav-active")
+    });    
+};
+
 $(document).ready(function(){
     enterSearch();
+    searchHover();
 })

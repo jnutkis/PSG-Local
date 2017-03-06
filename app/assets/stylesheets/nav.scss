@@ -63,6 +63,36 @@
 
 
 
+#nav-search {
+	width:100%;
+	margin: 20px auto;
+	height:26px;
+	input{
+		background: $nav-black;
+		border:none;
+		color: #fff;
+		border:1px solid #fff;
+		padding:2px;
+		width:85%;
+		
+	}
+	.nav-inactive{
+		display:none;
+	}
+	.nav-active {
+		
+	}
+	
+	#nav-glyph {
+		left: -18px;
+	    font-size: 24px;
+	    text-align: center;
+	    width: 100%;
+	    border: 1px solid transparent;
+	}
+	
+}
+
 
 @media(max-width:767px) {
 	#open_menu{

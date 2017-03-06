@@ -6,6 +6,12 @@
             	<li id="close_menu">
                 	Close
                 </li>
+                <li id="nav-search">
+                    <span id = "nav-glyph" class="glyphicon glyphicon-search nav-active"></span>
+                    <%= form_tag search_path, method: :get, id: "nav-search-wrap", class: "nav-inactive" do %>
+  			            <%= text_field_tag :q, params[:q], placeholder: "search...",autocomplete: 'off' %>
+		            <% end %>
+                </li>
                 <% if !logged_in? %> <!-- If Not Logged in, Show log-in button-->
 	                <li class="sidebar-brand" id="login">
 	                       <span class="glyphicon glyphicon-user"></span>
