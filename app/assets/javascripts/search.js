@@ -99,14 +99,14 @@ var enterSearch = function() {
 var searchHover = function() {
     $("#nav-search").mouseenter(function(){
         $("#nav-glyph").removeClass("nav-active").addClass("nav-inactive");
-        $("#nav-search-wrap").removeClass("nav-inactive").addClass("nav-active")
+        $("#nav-search-wrap").removeClass("nav-inactive").addClass("nav-active");
         a();
     });
     
     $("#nav-search").mouseleave(function(){
         if ($("#nav-search-wrap #q").val() === "") {
         $("#nav-glyph").toggleClass("nav-inactive nav-active");
-        $("#nav-search-wrap").toggleClass("nav-inactive nav-active")
+        $("#nav-search-wrap").toggleClass("nav-inactive nav-active");
         a();
     }}); 
     
@@ -116,7 +116,10 @@ var searchHover = function() {
     
     $("#nav-search-wrap input").focusout(function(){
         $(this).css({background: "#444242", color: "#fff"});
-    });
+        if ($("#nav-search-wrap #q").val() === "") {
+        $("#nav-glyph").removeClass("nav-inactive").addClass("nav-active");
+        $("#nav-search-wrap").removeClass("nav-active").addClass("nav-inactive");
+   }});
     
     var a = function() {
         if ($("#nav-search-wrap").hasClass("nav-active")) {
