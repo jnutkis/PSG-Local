@@ -2,7 +2,11 @@ var vendorSizing = function() {
      var width = $(".vendor-list").width();
      if (width) {
          var $list = $(".vendor-list-item");
-         if (width > 912) {
+         if (width > 1300) {
+             $list.css({
+                 width: (width-16)/4
+             })
+         } else if (width > 912) {
              $list.css({
                  width: (width-12)/3
              })

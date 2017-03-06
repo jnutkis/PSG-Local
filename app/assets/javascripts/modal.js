@@ -43,9 +43,6 @@ var modalShow = function() {
 
 var modalClose = function(){
     $(".outer-modal").hide();
-    /*$(".outer-modal").click(function() {
-        $(this).hide()
-    });*/
 };
 
 
@@ -63,4 +60,14 @@ $(document).ready(function() {
     $(".modal-close").click(function() {
         modalClose();
     })
+});
+
+$(document).mouseup(function (e) {
+    var container = $(".modal-box");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        $(".outer-modal").hide();
+    }
 });
