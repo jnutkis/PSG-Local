@@ -15,6 +15,6 @@
   modalShow();
  })
  
-  $(".login-small").click(function() {
+  $(".login-small a").click(function() {
   modalShow();
  })

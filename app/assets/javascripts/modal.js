@@ -12,11 +12,11 @@ var sizing = function(){
     })
     
     /*Modal Box Note: top set under modalShow() so I could animate*/
-    if (width >= 480) {    
+    if (width >= 700) {    
    $(".modal-box").css({
-        height: height/2,
-        width: width/2,
-        left: width/4
+        height: 350,
+        width: 700,
+        left: (width/2)-350
     });
     } else {
     /*let modal box span all width */

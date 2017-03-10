@@ -1,7 +1,7 @@
 <div class="outer-modal">
     <div class = "modal-box">
         <div class = "modal-close pull-right">Close</div>
-        <h1>Log-in</h1>
+        <h1 class="center">Log-in</h1>
         <%= bootstrap_form_for :session, url: login_path do |f| %>
     	<%= f.email_field :email %>
       	<%= f.password_field :password,label: "Password" %>

@@ -1,22 +1,9 @@
 var sizing = function(){
     var height,width;
     
-    if ($("html").height() > $("#page-content-wrapper").outerHeight() + $(".footer").outerHeight()) {
-        height = $("html").height();
-    } else if ($("#page-content-wrapper").outerHeight() + $(".footer").outerHeight() >= $("#sidebar-wrapper").outerHeight())  {
-        height = $("#page-content-wrapper").outerHeight() + $(".footer").outerHeight();
-    } else {
-        height = $("#sidebar-wrapper").outerHeight();
-    }
+    height = $(window).height();
+    width = $(window).width();
     
-    
-    
-    
-    if ($("html").width() > 0) {
-        width = $("html").width();
-    } else {
-        width = $("#page-content-wrapper").outerWidth() + $(".footer").outerWidth;
-    }
     
     /*Outer Modal*/
     $(".outer-modal").css({
@@ -32,6 +19,7 @@ var sizing = function(){
         left: width/4
     });
     } else {
+    /*let modal box span all width */
    $(".modal-box").css({
         height: height,
         width: width,
@@ -72,4 +60,14 @@ $(document).ready(function() {
     $(".modal-close").click(function() {
         modalClose();
     })
+});
+
+$(document).mouseup(function (e) {
+    var container = $(".modal-box");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        $(".outer-modal").hide();
+    }
 });

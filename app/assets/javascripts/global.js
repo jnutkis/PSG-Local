@@ -13,10 +13,18 @@ var searchTile = function() {
 }
 
 
+var profileTitleSize = function() {
+    var width = $(".profile-wrapper form").outerWidth();
+    $(".profile-wrapper h1").css("left",((width/2)-75));
+};
+
+
 $(document).ready(function(){
     searchTile();
+    profileTitleSize();
 });
 
 $(window).resize(function(){
     searchTile();
+    profileTitleSize();
 });

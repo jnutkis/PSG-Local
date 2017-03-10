@@ -20,12 +20,12 @@ $( document ).ready(function () {
 
 /* Allow double click on data table */
 $( document ).ready(function () {
-    $("#search-container").click(function(){
+    /*$("#search-container").click(function(){*/
         $("tbody tr").dblclick(function(){
             var ref = $(this).children().find('a').attr('href');
             window.location.href = ref;
         });
-    });
+   /* });*/
 });
 
 
