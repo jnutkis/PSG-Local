@@ -6,7 +6,9 @@
 		<p><%= @reference.specification.html_safe %></p>
 	</div>
 	<div class="row">
-		<h1 class="product-head">Related Products</h1>
+		<h1 class="product-head">Related Products
+		(<%= @products.size %>)
+		</h1>
 	<% if @products.present? %>
 		<table class="products">
 			<% @products.each do |product| %>
