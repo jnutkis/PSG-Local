@@ -8,13 +8,13 @@
 				<%= f.text_field :lastname, label: "Last Name" %>
 			  	<%= f.password_field :password,label: "Password", skip_required: true  %>
 			  	<%= f.password_field :password_confirmation,label: "Confirm", skip_required: true  %>
-			  	<%= f.submit "Update" %>
+			  	<%= f.submit "Update",class: "btn btn-info" %>
 			<% end %>
 	</div>
 </div>
 <% elsif%>
 <div class="container">
-	<div class="row center">
+	<div class="row profile-wrapper-other">
 		<h1>
 			<%= @user.firstname + " " + @user.lastname + '\'s Profile' %>
 		</h1>
@@ -23,14 +23,12 @@
 				<%= "Account Locked for " + timeDiff(@user).to_s + " more minutes"%>
 				</div>
 			<% end %>
-	</div>
-	<div class="row">
 		<%= bootstrap_form_for @user, :html => {class: "col-sm-6 login-form"} do |f| %>
 			<%= f.check_box :active,{},1 %>
 			<%= f.email_field :email, :readonly => true %>
 			<%= f.text_field :firstname, label: "First Name" %>
 			<%= f.text_field :lastname, label: "Last Name" %>
-		  	<%= f.submit "Update"%>
+		  	<%= f.submit "Update",class: "btn btn-info"%>
 		  	<%= bootstrap_form_for @user, :url => url_for(:controller => 'password_resets', :action => 'profile_reset') do |g| %>
 		  		<% link_to "Reset Password", profile_reset_password_path(@user), method: :post, class: "pull-right btn btn-warning", data: { confirm: 'Do you wish to reset this user\'s password?'} %>
 		  	<% end %>
