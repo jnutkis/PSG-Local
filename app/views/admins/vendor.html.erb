@@ -1,4 +1,9 @@
 <div class="row">
+	<h1 class="center vendor-title"><%= @vendor.name %>
+	<%= link_to edit_vendor_path(@vendor) do %>
+	<small class="glyphicon glyphicon-pencil"></small>
+	<% end %>
+	</h1>
 	<div class="col-md-6">
 		<h1>Products     <small><%= link_to "Add New", new_vendor_product_path(@vendor.name) %></small></h1>
 		<table class="admin-table">

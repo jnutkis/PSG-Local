@@ -1,18 +1,20 @@
 <div class="container">
     <div class="row">
-        <h1><%= @vendor.name %></h1>
-        <%= bootstrap_form_for @vendor, :html => {class: "col-sm-6",:multipart => true }  do |f| %>
-            <%= f.text_field :name, label: "Name" %>
-            <% if @vendor.image.file? %>
-                <div class="vendor-logo-preview">
-                    <%= image_tag @vendor.image.url%>
-                </div>
-             <% end %>
-            <%= f.file_field :image %>
-            <%= f.url_field :website, label: "Website" %>
-            <%= f.email_field :email, label: "Email" %>
-            <%= f.phone_field :phone, label: "Phone" %>
-            <%= f.submit %>
-        <% end %>
+        <h1 class="vendor-edit-title"><%= @vendor.name %></h1>
+        <div class="form-wrapper">
+            <%= bootstrap_form_for @vendor, :html => {class: "col-sm-6",:multipart => true }  do |f| %>
+                <%= f.text_field :name, label: "Name" %>
+                <% if @vendor.image.file? %>
+                    <div class="vendor-logo-preview">
+                        <%= image_tag @vendor.image.url%>
+                    </div>
+                 <% end %>
+                <%= f.file_field :image %>
+                <%= f.url_field :website, label: "Website" %>
+                <%= f.email_field :email, label: "Email" %>
+                <%= f.phone_field :phone, label: "Phone" %>
+                <%= f.submit class: "btn btn-info" %>
+            <% end %>
+        </div>
     </div>
 </div>
