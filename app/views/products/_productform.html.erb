@@ -1,5 +1,5 @@
 <% if super? || admin? %>
-	<%= bootstrap_form_for @product, url: vendor_products_path, :html => {class: "col-sm-6 login-form"} do |f| %>
+	<%= bootstrap_form_for @product, url: vendor_products_path, :html => {class: "col-sm-6 ref-form"} do |f| %>
 		<%= f.alert_message "Please fix the errors below." %>	
 		<%= f.text_field :name %>
 	  	<%= f.text_area :description %>

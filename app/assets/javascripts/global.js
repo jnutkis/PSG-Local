@@ -41,9 +41,29 @@ var profileTitleSize = function() {
 };*/
 
 
+var referencePagination = function (a,b) {
+  var div,a,b;
+  
+ a = (typeof a !== 'undefined') ?  a : 0
+ b = (typeof b !== 'undefined') ?  b : 24
+  
+ div = $(".ref-form .checkbox");
+
+ div.hide();
+ div.slice(a,b).show();
+  
+ return [a,b];  
+
+};
+
+
+
+
+
 $(document).ready(function(){
     searchTile();
     profileTitleSize();
+    referencePagination();
 });
 
 $(window).resize(function(){
