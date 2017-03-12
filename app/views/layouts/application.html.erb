@@ -20,11 +20,15 @@
 			<% end %>
 				</div>
 			</div>
+			<% unless current_page?(root_path) %>
 			<div class="container-fluid">
 				<div class="antibg">
+				<% end %>
 	    		<%= yield %>
+	    <% unless current_page?(root_path) %>
 	    	</div>
 	    </div>
+	    <% end %>
 	    <%= render 'layouts/footer' %>
 	    </div>
 	</div>
