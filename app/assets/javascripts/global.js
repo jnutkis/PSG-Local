@@ -19,7 +19,9 @@ var profileTitleSize = function() {
         $(".profile-wrapper h1").css("left",((width/2)-75));
     } else {
         var width = $(".profile-wrapper-other form").outerWidth();
+        
         var len =  $(".profile-wrapper-other h1").clone().appendTo("body").addClass("profileWidth").css("float","left").hide().width();
+        $(".profileWidth").remove();
         
         if ((width)-(len) > 0) {
             $(".profile-wrapper-other h1").css("left",((width/2)-(len/2)));
@@ -29,6 +31,14 @@ var profileTitleSize = function() {
     }
     
 };
+
+
+/*var referenceToggle = function() {
+    $("input#product_reference_ids").next().click(function(){
+        $(this).find("label").siblings().slideToggle();
+    });
+    $("input#product_reference_ids").next().trigger("click");
+};*/
 
 
 $(document).ready(function(){

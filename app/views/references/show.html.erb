@@ -1,7 +1,6 @@
-<div class="antibg">
 <p class="return"><%= link_to "<<< Return to References",references_path %></p>
 <h1 class="center"><%= @reference.full_ref %></h1>
-<div class="container">
+<div class="container-fluid">
 	<div class="row center spec">
 		<p><%= @reference.specification.html_safe %></p>
 	</div>
@@ -19,7 +18,8 @@
 				<% end %>
 				<td><%= link_to product.name,vendor_product_path(product.vendor,product) %></td>
 				<td><%= product.description[0...100] %>
-				<%= link_to "[more]",vendor_product_path(product.vendor,product) %></td>
+				<%= link_to "[more]",vendor_product_path(product.vendor,product) %>
+				</td>
 				</tr>
 				<% end %>
 			<% end %>
@@ -30,4 +30,4 @@
 	<% end %>
 	</div>
 </div>
-</div>
+

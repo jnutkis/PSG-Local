@@ -4,7 +4,7 @@
 		<%= f.text_field :name %>
 	  	<%= f.text_area :description %>
 	  	<%= f.url_field :url, label: "Product URL" %>
-	  	<%= f.collection_check_boxes :reference_ids, Reference.all, :id, :full_ref, :label => "References"  %>
+	  	<%= f.collection_check_boxes :reference_ids, Reference.all, :id, :full_ref, :label => "References" %>
 	  	<%= f.submit "Submit" %>
 	<% end %>
 <% end %>

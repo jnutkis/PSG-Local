@@ -1,5 +1,4 @@
 <p class="return"><%= link_to "<<< Return to Vendors",vendors_path %></p>
-<div class="container">
 	<div class="row center">
 		<div class="col-xs-12 vendor-head">
 		<% if @vendor.image.file? %>
@@ -21,7 +20,7 @@
 	</div>
 	<div class="row">
 		<div class="product-head">
-			<h1>Products</h1>
+			<h1 class="product-title">Products</h1>
 		</div>
 	</div>
 		<% @products.each do |x| %>
@@ -30,7 +29,7 @@
 		<div class="row">
 		<% end %>
 		<div class="col-md-6">
-			<h1 class="center"><%= x.name %></h1>
+			<h2 class="center"><%= x.name %></h2>
 			<% if x.description.present? %>
 			<div><%= x.description %></div>
 			<% end %>
@@ -41,4 +40,4 @@
 		<% end %>
 		<% end %>
 	<%= paginate @products %>
-</div>
+
