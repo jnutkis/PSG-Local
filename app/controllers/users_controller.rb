@@ -15,6 +15,7 @@ class UsersController < ApplicationController
         flash[:success] = "User has been sent an activation email"
         redirect_to administration_url
       else
+        flash.now[:danger] = @user.errors.full_messages.to_sentence
         render 'new' 
       end
     end

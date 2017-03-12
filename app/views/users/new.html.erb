@@ -1,9 +1,7 @@
 
 <div class="container">
 	<div class="row">
-		<% if flash[:danger] %>
-		<p><%= flash[:danger] %></p>
-		<% end %>
+		<h1 class="leftfifteen">New Administrator</h1>
 		<%= bootstrap_form_for @user, :html => {class: "col-sm-6 login-form"} do |f| %>
 			<%= f.email_field :email %>
 			<%= f.text_field :firstname, label: "First Name" %>

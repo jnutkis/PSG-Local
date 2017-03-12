@@ -1,10 +1,11 @@
 <div class="container">
 	<div class="row">
+		<h1 class="leftfifteen">New Administrator</h1>
 		<%= bootstrap_form_for @user, url:administration_vendor_user_path, :html => {class: "col-sm-6 login-form"} do |f| %>
 			<%= f.email_field :email %>
 			<%= f.text_field :firstname, label: "First Name" %>
 			<%= f.text_field :lastname, label: "Last Name" %>
-		  	<%= f.submit "Create User" %>
+		  	<%= f.submit "Create User", class: "btn btn-info" %>
 		<% end %>
 	</div>
 </div>
