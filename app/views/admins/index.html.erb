@@ -1,9 +1,6 @@
-<div class="container">
+
 	<div class="row center">
-		<% if flash[:info]%>
-			<p><%= flash[:info] %></p>
-		<% end %>
-		<h1>Welcome <%= current_user.firstname + " " + current_user.lastname %></h1>
+		<h1 class="negativefifteen">Welcome <%= current_user.firstname + " " + current_user.lastname %></h1>
 	</div>
 	<%= render "admins/home" %>
-</div>
+

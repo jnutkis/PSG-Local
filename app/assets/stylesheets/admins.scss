@@ -28,8 +28,26 @@
 }
 
 
+.negativefifteen {
+  position:relative;
+  left: -15px;
+}
+
+#vendor-head {
+  font-size: 20px;
+  width: 50%;
+  height: 50px;
+  vertical-align:bottom;
+  line-height:50px;
+}
+
+#vendor-label {
+  float:left;
+  width:50%;
+}
+
 @media (max-width: 967px) {
-  .admin-table-half {
+  .admin-table-half,#vendor-head {
     width: 100%;
   }
 }
