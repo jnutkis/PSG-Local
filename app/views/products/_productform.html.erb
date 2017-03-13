@@ -6,10 +6,10 @@
 	  	<%= f.url_field :url, label: "Product URL" %>
 	  	<%= f.collection_check_boxes :reference_ids, Reference.all, :id, :full_ref, :label => "References" %>
 	  	<div id = "ref-paginiation">
-		  	<div id = "ref-next">Next 25 References</div>
-		  	<div id = "ref-back">Back 25 References</div>
-		  	<div id = "ref-all">All References</div>
+	  		<div id = "ref-back">Back</div>
+		  	<div id = "ref-next">Next</div>
+		  	<div id = "ref-all">All</div>
 	  	</div>
-	  	<%= f.submit "Submit" %>
+	  	<%= f.submit "Submit", class: "btn btn-success product-btn" %>
 	<% end %>
 <% end %>
