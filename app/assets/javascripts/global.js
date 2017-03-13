@@ -124,6 +124,15 @@ var refPageMargin = function () {
     }
 };
 
+var refPageSize = function() {
+    var a = $(".antibg").width();
+    var b = $("#ref-paginiation div");
+    if (a <= 265) {
+        b.css({"width":"37.5px","font-size":"8px","height":"20px","line-height":"20px"})
+    } else {
+        b.css({"width":"75px","font-size":"14px","height":"40px","line-height":"40px"})
+    }
+};
 
 
 
@@ -132,6 +141,7 @@ $(document).ready(function(){
     profileTitleSize();
     referencePagination();
     refPageMargin();
+    refPageSize();
     
     $(".ref-form #ref-next").click(function(){
         pageNext(aPage,bPage);
@@ -150,6 +160,7 @@ $(document).ready(function(){
 $(window).resize(function(){
     searchTile();
     profileTitleSize();
+    refPageSize();
 });
 
 $(window).click(function(){
