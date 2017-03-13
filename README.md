@@ -12,3 +12,6 @@ Smart Listing: https://github.com/Sology/smart_listing
                https://rails.devcamp.com/ruby-gem-walkthroughs/view-template-tools/smart-listing-tutorial
                
 Modal: http://bootsnipp.com/snippets/featured/clean-modal-login-form
+
+
+#reference-table-results tr td:nth-child(2)"

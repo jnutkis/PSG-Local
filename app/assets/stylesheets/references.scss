@@ -85,6 +85,7 @@ table.products tr:nth-child(even) {
     float:left;
     width: 75px;
     border:1px solid black;
+    box-shadow: 5px 0px 5px #808080;
     @include border-radius(5px);
     background: $hitrust-red;
     color: #fff;
@@ -92,6 +93,9 @@ table.products tr:nth-child(even) {
     height:40px;
     line-height: 40px;
     vertical-align: middle;
+  }
+  #ref-back {
+    background: $hitrust-blue;
   }
 }
 
