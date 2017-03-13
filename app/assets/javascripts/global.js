@@ -107,9 +107,6 @@ var referencePagination = function (a,b) {
  div.hide();
  div.slice(a,b).show();
   
-
- console.log([a,b])
- 
 };
 
 
