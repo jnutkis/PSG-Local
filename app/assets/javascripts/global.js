@@ -113,6 +113,17 @@ var referencePagination = function (a,b) {
 };
 
 
+var refPageMargin = function () {
+    if ($("#ref-back").css("display") != "none") {
+        $("#ref-back").css({"margin-right": "10px"});
+        $("#ref-next").css({"margin-left": "10px", "margin-right": "10px"});
+        $("#ref-all").css({"margin-left": "10px"});
+    } else {
+        $("#ref-next").css({"margin-left": 0,"margin-right": "10px"});
+        $("#ref-all").css({"margin-left": "10px"});
+    }
+};
+
 
 
 
@@ -120,6 +131,7 @@ $(document).ready(function(){
     searchTile();
     profileTitleSize();
     referencePagination();
+    refPageMargin();
     
     $(".ref-form #ref-next").click(function(){
         pageNext(aPage,bPage);
@@ -138,4 +150,8 @@ $(document).ready(function(){
 $(window).resize(function(){
     searchTile();
     profileTitleSize();
+});
+
+$(window).click(function(){
+   refPageMargin(); 
 });
