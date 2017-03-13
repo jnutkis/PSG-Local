@@ -56,7 +56,7 @@ var pageNext = function(a,b){
         return referencePagination(aPage,bPage);
      } else {
         aPage += 25;
-        bPage = refCount;
+        bPage += 25;
         next.hide();
         return referencePagination(aPage,bPage);
      }
