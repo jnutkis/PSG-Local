@@ -44,6 +44,13 @@ var refCount
 var aPage = 0
 var bPage = 25;
 
+var disableRef = function(a) {
+    a.css({"background":"grey","cursor":"not-allowed"})    
+};
+    
+var enableRef = function(a) {
+    a.css({"background":"","cursor":"pointer"})    
+};
 
 var pageNext = function(a,b){
     var next = $(".ref-form #ref-next");
@@ -52,29 +59,31 @@ var pageNext = function(a,b){
      if (a < (refCount-50)) { /*if a param is more than 25 of the count*/
         aPage += 25;
         bPage += 25;
-        back.show();
+        enableRef(back);
         return referencePagination(aPage,bPage);
-     } else {
+     } else if (a < (refCount-25)){
         aPage += 25;
         bPage += 25;
-        next.hide();
+        disableRef(next);
         return referencePagination(aPage,bPage);
      }
+
 };
 
 var pageBack = function(a,b){
     var next = $(".ref-form #ref-next");
     var back = $(".ref-form #ref-back");
     
+
      if (b > 50) { /*if a param is more than 25 of the count*/
         aPage -= 25;
         bPage -= 25;
-        next.show();
+        enableRef(next);
         return referencePagination(aPage,bPage);
-     } else {
+     } else if (b > 25) {
         aPage = 0;
         bPage -= 25;
-        back.hide();
+        disableRef(back);
         return referencePagination(aPage,bPage);
      }
 };
@@ -139,6 +148,7 @@ $(document).ready(function(){
     referencePagination();
     refPageMargin();
     refPageSize();
+    disableRef($(".ref-form #ref-back"));
     
     $(".ref-form #ref-next").click(function(){
         pageNext(aPage,bPage);

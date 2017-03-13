@@ -73,10 +73,6 @@ table.products tr:nth-child(even) {
   padding: 10px 0;
 }
 
-#ref-back {
-  display:none;
-}
-
 #ref-paginiation {
   display:inline-block;
   margin:25px 0 50px 0;
@@ -93,6 +89,10 @@ table.products tr:nth-child(even) {
     height:40px;
     line-height: 40px;
     vertical-align: middle;
+    user-select: none;
+  }
+  div:hover {
+    opacity:.85;
   }
   #ref-back {
     background: $hitrust-blue;
@@ -102,4 +102,16 @@ table.products tr:nth-child(even) {
 .product-btn {
   clear:both;
   display:block;
+}
+
+@media (max-width: 480px) {
+  table#reference-table-results td:nth-child(2),
+  table#reference-table-results th:nth-child(2) {
+    display:none;
+  }
+  
+  table#reference-table-results td:nth-child(1),
+  table#reference-table-results th:nth-child(1) {
+    width:100%;
+  }
 }

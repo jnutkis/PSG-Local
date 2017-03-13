@@ -11,9 +11,7 @@ $( document ).ready(function () {
     aLengthMenu: [
         [20,50, 100, -1],
         [20,50, 100, "All"]],
-        "searching": false,
-        "pagingType": "full_numbers"
-    
+        "searching": false
     });
 });
 
