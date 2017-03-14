@@ -19,3 +19,9 @@ $nav-black: #444242;
     -moz-border-radius: $size;
     border-radius: $size;
 }
+
+@mixin background-clip($option) {
+    -moz-background-clip: $option;     /* Firefox 3.6 */
+    -webkit-background-clip: $option;  /* Safari 4? Chrome 6? */
+    background-clip: $option+"-box";      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}

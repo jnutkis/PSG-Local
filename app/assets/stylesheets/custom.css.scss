@@ -74,10 +74,10 @@ h2 {
     height: 50px;
     vertical-align: middle;
     line-height: 50px;
-    border: 2px solid #fff;
     border-radius: 2%;
     margin: 50px 0;
     text-shadow: 1px 1px 5px #000000;
+    @include background-clip(content)
 }
 
 #search-ref {
