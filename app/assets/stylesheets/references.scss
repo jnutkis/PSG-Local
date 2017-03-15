@@ -117,7 +117,7 @@ table.products tr:nth-child(even) {
   box-shadow: 0px 0px 10px black;
   #ref-preview-inner {
     .ref-preview-title {
-      padding: 10px;
+      padding: 30px 10px 10px 10px;
       background: #fff;
       color: $hitrust-red;
       padding-bottom: 40px;
@@ -126,7 +126,7 @@ table.products tr:nth-child(even) {
       }
     }
     .ref-preview-body {
-      padding: 10px;
+      padding: 10px 10px 30px 10px;
       background: #fff;
       color: #000000;
       text-align: center;
