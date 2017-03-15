@@ -104,6 +104,11 @@ table.products tr:nth-child(even) {
   display:block;
 }
 
+.ref-list {
+  display:none;
+  position:relative;
+}
+
 @media (max-width: 480px) {
   table#reference-table-results td:nth-child(2),
   table#reference-table-results th:nth-child(2) {

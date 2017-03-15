@@ -27,6 +27,32 @@ $( document ).ready(function () {
     });
 });
 
+var refTip = function() {
+  $(".ref-form .checkbox label").mouseenter(function(){
+      var ref = $(this).text().split(" ")[1].replace(".","");
+      $("#ref-"+ref).show();
+  });
+  
+  $(".ref-form .checkbox label").mouseleave(function(){
+      var ref = $(this).text().split(" ")[1].replace(".","");
+      $("#ref-"+ref).hide();
+      });
+};
+
+var refResize = function() {
+    var x = $(window).scrollTop();
+    $("#refs-preview-container").css("top",x);
+}
+
+
+$(document).ready(function(){
+    refTip();
+})
+
+$(window).scroll(function(){
+    refResize();
+})
+
 
 /*$( document ).ready(function () {
     $("#reference-table-results > tbody  tr").mouseover(function() {

@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
       redirect_to root_path
     end
     @product = Product.new
+    @refs = Reference.all
     if admin?
       @vendor = Vendor.find(current_user.vendor_id).name
       if @vendor != params[:vendor_id]
