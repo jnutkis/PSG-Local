@@ -29,12 +29,12 @@ $( document ).ready(function () {
 
 var refTip = function() {
   $(".ref-form .checkbox label").mouseenter(function(){
-      var ref = $(this).text().split(" ")[1].replace(".","");
+      var ref = $(this).text().split(" ")[1].replace(/\./g,"");
       $("#ref-"+ref).show();
   });
   
   $(".ref-form .checkbox label").mouseleave(function(){
-      var ref = $(this).text().split(" ")[1].replace(".","");
+      var ref = $(this).text().split(" ")[1].replace(/\./g,"");
       $("#ref-"+ref).hide();
       });
 };

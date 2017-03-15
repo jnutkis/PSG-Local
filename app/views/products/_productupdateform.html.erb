@@ -15,4 +15,12 @@
 	  	</div>
 	  	<%= f.submit "Submit", class: "btn btn-info product-btn" %>
 	<% end %>
+	<div id="refs-preview-container" class="col-sm-6">
+		<% @refs.each do |x| %>
+			<div class="ref-list" id=<%= "ref-#{x.short_ref}"%>>
+				<h1><%= x.full_ref %></h1>
+				<div><%= x.specification.html_safe %></div>
+			</div>
+		<% end %>
+	</div>
 <% end %>

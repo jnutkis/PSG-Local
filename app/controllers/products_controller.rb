@@ -64,6 +64,7 @@ class ProductsController < ApplicationController
   
   
   def edit
+    @refs = Reference.all
     if super?
       @vendor = Vendor.find_by(name: params[:vendor_id])
       @product = @vendor.products.find(params[:id])
