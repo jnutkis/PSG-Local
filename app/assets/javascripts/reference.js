@@ -58,7 +58,18 @@ var refResize = function() {
     b = $(window).width()
     if (a >= 600 && b >= 976) {
         var x = $(window).scrollTop();
-        $("#refs-preview-container").css("top",x);
+        $("#refs-preview-container").css("top",x+100);
+    }
+}
+
+var refCenter = function() {
+    var a = $(".ref-form").width();
+    var b = $("#refs-preview-container").width();
+    var c = (a-b)/2;
+    if (a > b) {
+       $("#refs-preview-container").css({left:c}); 
+    } else {
+       $("#refs-preview-container").css({left:0})
     }
 }
 
@@ -66,10 +77,12 @@ var refResize = function() {
 $(document).ready(function(){
     refTip();
     refResize();
+    refCenter();
 })
 
 $(window).resize(function(){
     refTip();
+    refCenter();
 })
 
 $(window).scroll(function(){

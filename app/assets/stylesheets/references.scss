@@ -113,7 +113,6 @@ table.products tr:nth-child(even) {
   position:relative;
   background: $hitrust-blue;
   padding: 5px;
-  left: -10px;
   @include border-radius(5px);
   box-shadow: 0px 0px 10px black;
   #ref-preview-inner {
@@ -130,6 +129,7 @@ table.products tr:nth-child(even) {
       padding: 10px;
       background: #fff;
       color: #000000;
+      text-align: center;
     }
   }
 }

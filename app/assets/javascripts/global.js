@@ -145,7 +145,9 @@ var refPageSize = function() {
 $(document).ready(function(){
     searchTile();
     profileTitleSize();
-    referencePagination();
+    aPage = 0;
+    bPage = 25;
+    referencePagination(aPage,bPage);
     refPageMargin();
     refPageSize();
     disableRef($(".ref-form #ref-back"));
