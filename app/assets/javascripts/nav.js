@@ -1,7 +1,12 @@
  $("#close_menu").click(function() {
         $("#sidebar-wrapper").css("width",0);
-        $("#wrapper").css("paddingLeft",40);
         $("#open_menu").css({"z-index" : 2}).animate({opacity: 1},1000);
+        
+        if ($(window).width() > 767) {
+         $("#wrapper").css("paddingLeft",40);
+        } else {
+         $("#wrapper").css("paddingLeft",0);
+        }
  });
 
 

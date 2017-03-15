@@ -2,7 +2,7 @@
 	<% if params[:notice] %>
 	<p><%= params[:notice] %></p>
 	<% end %>
-	<%= bootstrap_form_for @product, url: vendor_product_path, :html => {class: "col-sm-6 ref-form"} do |f| %>
+	<%= bootstrap_form_for @product, url: vendor_product_path, :html => {class: "col-md-6 ref-form"} do |f| %>
 		<%= f.alert_message "Please fix the errors below." %>	
 		<%= f.text_field :name %>
 	  	<%= f.text_area :description %>
@@ -15,12 +15,16 @@
 	  	</div>
 	  	<%= f.submit "Submit", class: "btn btn-info product-btn" %>
 	<% end %>
-	<div id="refs-preview-container" class="col-sm-6">
-		<% @refs.each do |x| %>
-			<div class="ref-list" id=<%= "ref-#{x.short_ref}"%>>
-				<h1><%= x.full_ref %></h1>
-				<div><%= x.specification.html_safe %></div>
-			</div>
-		<% end %>
+	<div id="refs-preview-container" class="col-sm-6 col-lg-3">
+		<div id="ref-preview-inner">
+			<% @refs.each do |x| %>
+				<div class="ref-list" id=<%= "ref-#{x.short_ref}"%>>
+					<div class="ref-preview-title">
+						<h3 class="center"><%= x.full_ref %></h3>
+					</div>
+					<div class="ref-preview-body"><%= x.specification.html_safe %></div>
+				</div>
+			<% end %>
+		</div>
 	</div>
 <% end %>

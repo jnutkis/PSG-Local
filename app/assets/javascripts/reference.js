@@ -28,24 +28,47 @@ $( document ).ready(function () {
 });
 
 var refTip = function() {
-  $(".ref-form .checkbox label").mouseenter(function(){
-      var ref = $(this).text().split(" ")[1].replace(/\./g,"");
-      $("#ref-"+ref).show();
-  });
-  
-  $(".ref-form .checkbox label").mouseleave(function(){
-      var ref = $(this).text().split(" ")[1].replace(/\./g,"");
-      $("#ref-"+ref).hide();
-      });
+    var a,b;
+    a = $(".antibg").width();
+    b = $(window).width();
+    if (a >= 600 && b >= 976) {
+        $(".ref-form .checkbox label").mouseenter(function(){
+            $("#refs-preview-container").show();
+            var ref = $(this).text().split(" ")[1].replace(/\./g,"");
+            $("#ref-"+ref).show();
+        });
+        
+        $(".ref-form .checkbox label").mouseleave(function(){
+            $("#refs-preview-container").hide();
+            var ref = $(this).text().split(" ")[1].replace(/\./g,"");
+            $("#ref-"+ref).hide();
+          });
+    } else {
+        $(".ref-form .checkbox label").mouseenter(function(){
+            $("#refs-preview-container").hide();
+        });
+    }
+    
+    return [a,b]
 };
 
 var refResize = function() {
-    var x = $(window).scrollTop();
-    $("#refs-preview-container").css("top",x);
+    var a,b;
+    a = $(".antibg").width();
+    b = $(window).width()
+    if (a >= 600 && b >= 976) {
+        var x = $(window).scrollTop();
+        $("#refs-preview-container").css("top",x);
+    }
 }
 
 
 $(document).ready(function(){
+    refTip();
+    refResize();
+})
+
+$(window).resize(function(){
     refTip();
 })
 
