@@ -60,7 +60,7 @@ var refResize = function() {
         var x = $(window).scrollTop();
         $("#refs-preview-container").css("top",x+100);
     }
-}
+};
 
 var refCenter = function() {
     var a = $(".ref-form").width();
@@ -71,7 +71,8 @@ var refCenter = function() {
     } else {
        $("#refs-preview-container").css({left:0})
     }
-}
+};
+
 
 
 $(document).ready(function(){

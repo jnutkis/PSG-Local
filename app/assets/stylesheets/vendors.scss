@@ -93,6 +93,12 @@
   }
 }
 
+@media (min-width: 992px) {
+  .vendor-product-row:not(:last-child) {
+    border-bottom: 1px solid $hitrust-red;
+    padding-bottom: 20px;
+  }
+}
 @media (max-width: 480px) {
   .vendor-list-item {
   width: 100px;
