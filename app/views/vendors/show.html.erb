@@ -9,12 +9,14 @@
 		</h1>
 	</div>
 	<div class="col-xs-12">
-		<p>Website: <%= link_to @vendor.website,@vendor.website, :target => "_blank" %></p>
+		<% if @vendor.website.present? %>
+		<p><span class="glyphicon glyphicon-globe"></span>  <%= link_to @vendor.website,@vendor.website, :target => "_blank" %></p>
+		<% end %>
 		<% if @vendor.phone.present? %>
-		<p>Phone: <%= @vendor.phone %></p>
+		<p><span class="glyphicon glyphicon-phone-alt"></span>  <%= @vendor.phone %></p>
 		<% end %>
 		<% if @vendor.email.present? %>
-		<p>Email: <%= mail_to @vendor.email, @vendor.email, subject: "Products and Services Guide Inquiry" %></p>
+		<p><span class="glyphicon glyphicon-envelope"></span>  <%= mail_to @vendor.email, @vendor.email, subject: "Products and Services Guide Inquiry" %></p>
 		<% end %>
 	</div>
 	</div>

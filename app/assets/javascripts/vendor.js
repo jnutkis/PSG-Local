@@ -22,8 +22,24 @@ var vendorSizing = function() {
      }
 }
 
+
+var vendorHover = function() {
+    $(".vendor-list-item").mouseenter(function(e){
+        $(".vendor-list-item").css("opacity",.5); 
+        $(this).css({opacity:1, fontWeight: "bold",textDecoration: "underline"});
+    })
+};
+
+var vendorHoverOff = function() {
+    $(".vendor-list-item").mouseleave(function(e){
+        $(".vendor-list-item").css({opacity:1, fontWeight: "",textDecoration: ""});     
+    })
+};
+
 $(document).ready(function(){
     vendorSizing();
+    vendorHover();
+    vendorHoverOff();
 })
 
 $(window).resize(function(){

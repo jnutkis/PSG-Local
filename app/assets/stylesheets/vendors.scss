@@ -95,7 +95,7 @@
 
 @media (min-width: 992px) {
   .vendor-product-row:not(:last-child) {
-    border-bottom: 1px solid $hitrust-red;
+    border-bottom: 4px double $hitrust-red;
     padding-bottom: 20px;
   }
 }
