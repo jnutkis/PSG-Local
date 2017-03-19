@@ -94,9 +94,16 @@
 }
 
 @media (min-width: 992px) {
-  .vendor-product-row:not(:last-child) {
+  /*.vendor-product-row:not(:last-child) {
     border-bottom: 4px double $hitrust-red;
     padding-bottom: 20px;
+  }*/
+  
+  .vendor-product-body {
+    padding-bottom: 20px;
+  }
+  .vendor-product-row:nth-child(even){
+    background: #ddd;
   }
 }
 @media (max-width: 480px) {

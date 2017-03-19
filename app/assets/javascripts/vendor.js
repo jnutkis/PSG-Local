@@ -26,14 +26,51 @@ var vendorSizing = function() {
 var vendorHover = function() {
     $(".vendor-list-item").mouseenter(function(e){
         $(".vendor-list-item").css("opacity",.5); 
-        $(this).css({opacity:1, fontWeight: "bold",textDecoration: "underline"});
+        $(this).css({opacity:1, fontWeight: "bold"});
     })
 };
 
 var vendorHoverOff = function() {
     $(".vendor-list-item").mouseleave(function(e){
-        $(".vendor-list-item").css({opacity:1, fontWeight: "",textDecoration: ""});     
+        $(".vendor-list-item").css({opacity:1, fontWeight: ""});     
     })
+};
+
+
+
+var vendorBorder = function() {
+    if ($(window).width() >= 992) {
+        var a,b,c,d;
+        a = 1;
+        b = 2;
+        a.toString();
+        b.toString();
+        c = $("#vendor-product-"+a);
+        d = $("#vendor-product-"+b);
+        do {
+            if (c.height() >= d.height()) {
+                d.css("height",c.outerHeight());
+                if (b%4 === 0) {
+                d.css("borderLeft","1px solid #ddd")    
+                } else {
+                d.css("borderLeft","1px solid #fff")
+                }
+            } else {
+                if (b%4 === 0) {
+                d.css("borderLeft","1px solid #ddd")    
+                } else {
+                d.css("borderLeft","1px solid #fff")
+                }
+            }
+            
+            a+=2;
+            b+=2;
+            c = $("#vendor-product-"+a);
+            d = $("#vendor-product-"+b);
+            console.log(c);
+            console.log(d);
+        } while (c.length > 0);
+    }
 };
 
 $(document).ready(function(){
