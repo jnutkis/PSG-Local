@@ -39,27 +39,27 @@ var vendorHoverOff = function() {
 
 
 var vendorBorder = function() {
+    var a,b,c,d;
+    a = 1;
+    b = 2;
+    a.toString();
+    b.toString();
+    c = $("#vendor-product-"+a);
+    d = $("#vendor-product-"+b);
     if ($(window).width() >= 992) {
-        var a,b,c,d;
-        a = 1;
-        b = 2;
-        a.toString();
-        b.toString();
-        c = $("#vendor-product-"+a);
-        d = $("#vendor-product-"+b);
         do {
             if (c.height() >= d.height()) {
                 d.css("height",c.outerHeight());
-                if (b%4 === 0) {
-                d.css("borderLeft","1px solid #ddd")    
+                if (b%4 != 0) {
+                d.css("borderLeft","2px solid #ddd")    
                 } else {
-                d.css("borderLeft","1px solid #fff")
+                d.css("borderLeft","2px solid #fff")
                 }
             } else {
-                if (b%4 === 0) {
-                d.css("borderLeft","1px solid #ddd")    
+                if (b%4 != 0) {
+                d.css("borderLeft","2px solid #ddd")    
                 } else {
-                d.css("borderLeft","1px solid #fff")
+                d.css("borderLeft","2px solid #fff")
                 }
             }
             
@@ -67,9 +67,15 @@ var vendorBorder = function() {
             b+=2;
             c = $("#vendor-product-"+a);
             d = $("#vendor-product-"+b);
-            console.log(c);
-            console.log(d);
         } while (c.length > 0);
+    } else {
+        do {
+            d.css("borderLeft","")
+            a+=2;
+            b+=2;
+            c = $("#vendor-product-"+a);
+            d = $("#vendor-product-"+b);
+        } while (c.length > 0)
     }
 };
 
@@ -77,8 +83,10 @@ $(document).ready(function(){
     vendorSizing();
     vendorHover();
     vendorHoverOff();
+    vendorBorder();
 })
 
 $(window).resize(function(){
     vendorSizing();
+    vendorBorder();
 })
