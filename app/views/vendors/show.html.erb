@@ -1,48 +1,48 @@
 <p class="return"><%= link_to "<<< Return to Vendors",vendors_path %></p>
-	<div class="row center">
-		<div class="col-xs-12 vendor-head">
-		<% if @vendor.image.file? %>
-		<%= image_tag(@vendor.image.url, class: "vendor-logo") %>
-		<% end %>
-		<h1>
-		<%= @vendor.name %>
+<div class="row center">
+	<div class="col-xs-12 vendor-head">
+	<% if @vendor.image.file? %>
+	<%= image_tag(@vendor.image.url, class: "vendor-logo") %>
+	<% end %>
+	<h1>
+	<%= @vendor.name %>
+	</h1>
+</div>
+<div class="col-xs-12">
+	<% if @vendor.website.present? %>
+	<p><span class="glyphicon glyphicon-globe"></span>  <%= link_to @vendor.website,@vendor.website, :target => "_blank" %></p>
+	<% end %>
+	<% if @vendor.phone.present? %>
+	<p><span class="glyphicon glyphicon-phone-alt"></span>  <%= @vendor.phone %></p>
+	<% end %>
+	<% if @vendor.email.present? %>
+	<p><span class="glyphicon glyphicon-envelope"></span>  <%= mail_to @vendor.email, @vendor.email, subject: "Products and Services Guide Inquiry" %></p>
+	<% end %>
+</div>
+</div>
+<div class="row">
+	<div class="product-head">
+		<h1 class="product-title">
+			Products
+			<small>(<%= @product_count.size %>)</small>
 		</h1>
 	</div>
-	<div class="col-xs-12">
-		<% if @vendor.website.present? %>
-		<p><span class="glyphicon glyphicon-globe"></span>  <%= link_to @vendor.website,@vendor.website, :target => "_blank" %></p>
-		<% end %>
-		<% if @vendor.phone.present? %>
-		<p><span class="glyphicon glyphicon-phone-alt"></span>  <%= @vendor.phone %></p>
-		<% end %>
-		<% if @vendor.email.present? %>
-		<p><span class="glyphicon glyphicon-envelope"></span>  <%= mail_to @vendor.email, @vendor.email, subject: "Products and Services Guide Inquiry" %></p>
-		<% end %>
-	</div>
-	</div>
-	<div class="row">
-		<div class="product-head">
-			<h1 class="product-title">
-				Products
-				<small>(<%= @products.size %>)</small>
-			</h1>
-		</div>
-	</div>
-		<% @products.each do |x| %>
-		<% @count += 1 %>
-		<% if @count % 2 != 0 %>
-		<div class="row vendor-product-row">
-		<% end %>
-		<div class="col-md-6 vendor-product-body" id= <%="vendor-product-#{@count}"%>>
-			<h2 class="center"><%= x.name %></h2>
-			<% if x.description.present? %>
+</div>
+<% @products.each do |x| %>
+<% @count += 1 %>
+<% if @count % 2 != 0 %>
+	<div class="row vendor-product-row">
+	<% end %>
+	<div class="col-md-6 vendor-product-body" id= <%="vendor-product-#{@count}"%>>
+		<span class="vendor-product-num"><%=@count %></span>
+		<h2 class="center"><%= x.name %></h2>
+		<% if x.description.present? %>
 			<div><%= x.description %></div>
-			<% end %>
-			<%= link_to "More Information",vendor_product_path(@vendor,x) %>
-		</div>
-		<% if @count % 2 == 0 %>
-		</div>
 		<% end %>
-		<% end %>
-	<%= paginate @products %>
-
+		<%= link_to "More Information",vendor_product_path(@vendor,x) %>
+	</div>
+	<% if @count % 2 == 0 || (x === @products.last && @count % 2 != 0)%>
+	</div>
+	<% end %>
+<% end %>
+<%= paginate @products %>

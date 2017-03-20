@@ -93,6 +93,11 @@
   }
 }
 
+.vendor-product-num {
+  font-size:10px;
+  visibility: hidden;
+}
+
 @media (min-width: 992px) {
   /*.vendor-product-row:not(:last-child) {
     border-bottom: 4px double $hitrust-red;
@@ -104,6 +109,11 @@
   }
   .vendor-product-row:nth-child(odd){
     background: #ddd;
+  }
+  
+  .vendor-product-num {
+    float:right;
+    visibility:visible;
   }
 }
 @media (max-width: 480px) {

@@ -48,18 +48,20 @@ var vendorBorder = function() {
     d = $("#vendor-product-"+b);
     if ($(window).width() >= 992) {
         do {
+            c.css("height","");
+            d.css("height","");
             if (c.height() >= d.height()) {
-                d.css("height",c.outerHeight());
                 if (b%4 != 0) {
-                d.css("borderLeft","2px solid #ddd")    
+                c.css("borderRight","2px solid #ddd")    
                 } else {
-                d.css("borderLeft","2px solid #fff")
+                c.css("borderRight","2px solid #fff")
                 }
             } else {
+                c.css("height",d.outerHeight());
                 if (b%4 != 0) {
-                d.css("borderLeft","2px solid #ddd")    
+                c.css("borderRight","2px solid #ddd")    
                 } else {
-                d.css("borderLeft","2px solid #fff")
+                c.css("borderRight","2px solid #fff")
                 }
             }
             
@@ -70,7 +72,7 @@ var vendorBorder = function() {
         } while (c.length > 0);
     } else {
         do {
-            d.css("borderLeft","")
+            c.css({borderRight:"",height:""})
             a+=2;
             b+=2;
             c = $("#vendor-product-"+a);
