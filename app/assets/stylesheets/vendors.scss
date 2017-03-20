@@ -116,6 +116,13 @@
     visibility:visible;
   }
 }
+
+@media (max-width: 991px) {
+  .vendor-product-body:nth-child(even){
+    background: #ddd;
+  }
+}
+
 @media (max-width: 480px) {
   .vendor-list-item {
   width: 100px;

@@ -8,7 +8,7 @@ class VendorsController < ApplicationController
   
   def show
     @vendor = Vendor.where(active: 1).friendly.find(params[:id])
-    @products = Vendor.friendly.find(params[:id]).products.order(:name).page(params[:page]).per(6)
+    @products = Vendor.friendly.find(params[:id]).products.order(:name).page(params[:page]).per(8)
     @count = 0
     @product_count = Vendor.find_by(name: params[:id]).products
     

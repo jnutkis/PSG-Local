@@ -28,13 +28,19 @@
 		</h1>
 	</div>
 </div>
-<% @products.each do |x| %>
+<% @products.each_with_index do |x,index| %>
 <% @count += 1 %>
 <% if @count % 2 != 0 %>
 	<div class="row vendor-product-row">
 	<% end %>
 	<div class="col-md-6 vendor-product-body" id= <%="vendor-product-#{@count}"%>>
-		<span class="vendor-product-num"><%=@count %></span>
+		<span class="vendor-product-num">
+			<% if params[:page].present? %>
+			<%= (index+1) + ((params[:page].to_i-1) * 8) %>
+			<% else %>
+			<%= index+1 %>
+			<% end %>
+		</span>
 		<h2 class="center"><%= x.name %></h2>
 		<% if x.description.present? %>
 			<div><%= x.description %></div>
