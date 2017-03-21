@@ -52,16 +52,16 @@ var vendorBorder = function() {
             d.css("height","");
             if (c.height() >= d.height()) {
                 if (b%4 != 0) {
-                c.css("borderRight","2px solid #ddd")    
+                c.css("borderRight","2px solid #E0F2F7");
                 } else {
-                c.css("borderRight","2px solid #fff")
+                c.css("borderRight","2px solid #fff");
                 }
             } else {
                 c.css("height",d.outerHeight());
                 if (b%4 != 0) {
-                c.css("borderRight","2px solid #ddd")    
+                c.css("borderRight","2px solid #E0F2F7");
                 } else {
-                c.css("borderRight","2px solid #fff")
+                c.css("borderRight","2px solid #fff");
                 }
             }
             
@@ -79,6 +79,7 @@ var vendorBorder = function() {
             d = $("#vendor-product-"+b);
         } while (c.length > 0)
     }
+    
 };
 
 $(document).ready(function(){

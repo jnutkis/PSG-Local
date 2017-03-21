@@ -94,9 +94,14 @@
 }
 
 .vendor-product-num {
-  font-size:10px;
+  font-size:14px;
   visibility: hidden;
+  font-family: 'Cedarville Cursive', cursive;
+  border:1px solid #000000;
+  @include border-radius(100%);
+  padding:4px;
 }
+
 
 @media (min-width: 992px) {
   /*.vendor-product-row:not(:last-child) {
@@ -108,18 +113,24 @@
     padding-bottom: 20px;
   }
   .vendor-product-row:nth-child(odd){
-    background: #ddd;
+    background: #E0F2F7;
   }
   
   .vendor-product-num {
-    float:right;
     visibility:visible;
+  }
+
+  .vendor-product-body:nth-child(odd) .vendor-product-num {
+  float:right;
+  }  
+  .vendor-product-body:nth-child(even) .vendor-product-num {
+  float:left;
   }
 }
 
 @media (max-width: 991px) {
   .vendor-product-body:nth-child(even){
-    background: #ddd;
+    background: #E0F2F7;
   }
 }
 
