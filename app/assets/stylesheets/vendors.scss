@@ -97,9 +97,6 @@
   font-size:14px;
   visibility: hidden;
   font-family: 'Cedarville Cursive', cursive;
-  border:1px solid #000000;
-  @include border-radius(100% 50%);
-  padding:4px;
   position:relative;
   top: 5px;
 }
