@@ -34,7 +34,7 @@
 	<div class="row vendor-product-row">
 	<% end %>
 	<div class="col-md-6 vendor-product-body" id= <%="vendor-product-#{@count}"%>>
-		<span class="vendor-product-num">
+		<span class="vendor-product-num circled">
 			<% if params[:page].present? %>
 			<%= (index+1) + ((params[:page].to_i-1) * 8) %>
 			<% else %>
