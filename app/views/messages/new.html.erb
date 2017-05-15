@@ -1,12 +1,24 @@
 <div class="container">
     <div class="row form-wrapper">
         <h1>Contact us</h1>
-        <%= bootstrap_form_for @message, :html => {class: "col-sm-6"} do |f| %>
+        <%= bootstrap_form_for @message, :html => {class: "col-sm-6 contact"} do |f| %>
             <%= f.text_area :message, label: "Enter a message" %>
             <div class="col-sm-6 message-name"><%= f.text_field :name, label: "Your name" %></div>
             <div class="col-sm-6 message-email"><%= f.email_field :email, label: "Your Email" %></div>
             <div class="recaptcha"><%= recaptcha_tags %></div>
             <div><%= f.submit "Send", class: "btn btn-info" %></div>
         <% end %>
+        <!--<div class="col-md-6 contact-more">
+			<p>
+				6175 Main Street</br>
+				Suite 420</br> 
+				Frisco, TX 75034</br>
+            </p>
+			<p>
+				Main Line: 469.269.1100</br>
+				Sales: 855.HITRUST (855-448-7878)</br>
+				Support: 877.406.6006</br>
+			</p>
+        </div>-->
     </div>
 </div>
